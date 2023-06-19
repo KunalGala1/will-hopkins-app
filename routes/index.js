@@ -11,6 +11,7 @@ router.get('/events', async (req, res) => {
 });
 
 router.get('/bio', async (req, res) => {
+  console.log(Content);
   const data = await Content.findOne({ name: 'bio' });
   console.log(await Content.find());
   const json = JSON.parse(data.json);
