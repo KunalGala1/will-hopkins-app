@@ -1,0 +1,36 @@
+@use '../abstracts/' as a;
+
+footer {
+  background-color: var(--secondary-color);
+  margin-top: 30px;
+
+  padding: 37px;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    color: var(--gray);
+    a {
+      font-size: 30px;
+
+      cursor: pointer;
+
+      &:hover {
+        color: var(--light-gray);
+        @include a.transition($duration: 0.1s);
+      }
+    }
+
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .copyright {
+    color: var(--gray);
+    display: block;
+    text-align: center;
+    font-family: a.$font-family-sans;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+}

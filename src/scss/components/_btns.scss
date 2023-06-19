@@ -1,0 +1,49 @@
+@use '../abstracts/' as a;
+
+.btn-primary {
+  background-color: var(--btn-color);
+  font-family: a.$font-family-sans;
+  padding: 5px 15px;
+  border-radius: a.$btn-radius;
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+  color: var(--light-gray);
+  @include a.transition($duration: 0.1s);
+  &:hover {
+    background-color: var(--btn-color-hover);
+    outline: solid 1px white;
+    color: white;
+  }
+}
+
+.success-btn {
+  background-color: var(--success);
+  font-family: a.$font-family-sans;
+  padding: 5px 15px;
+  border-radius: a.$btn-radius;
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+  color: var(--light-gray);
+  @include a.transition($duration: 0.1s);
+  &:hover {
+    background-color: var(--success-hover);
+    outline: solid 1px white;
+    color: white;
+  }
+}
+
+.danger-btn {
+  background-color: transparent;
+  font-family: a.$font-family-sans;
+  padding: 5px 15px;
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+  color: var(--gray);
+  @include a.transition($duration: 0.1s);
+  &:hover {
+    color: black;
+  }
+}

@@ -1,0 +1,95 @@
+@use '../abstracts/' as a;
+@use '../abstracts/layout/breakpoints' as b;
+
+#bio {
+  --gap: 30px;
+  padding: var(--gap);
+  @include a.transition($property: padding, $duration: 0.5s);
+  @include b.min(lg) {
+    padding: calc(var(--gap) * 2);
+  }
+  max-width: a.$max-width-lg;
+  margin: 0 auto;
+
+  .block:first-child {
+    @include b.min(lg) {
+      display: none;
+    }
+  }
+
+  img {
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 75%;
+    border-radius: a.$radius;
+  }
+  blockquote {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .block + .block {
+    @include b.max(lg, -1px) {
+      margin-top: var(--gap);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    @include b.min(md) {
+      flex-direction: row;
+    }
+
+    font-family: a.$font-family-sans;
+    color: var(--light-gray);
+    line-height: 2;
+
+    p + p {
+      margin-top: var(--gap);
+    }
+
+    div + div {
+      @include b.max(md, -1px) {
+        margin-top: var(--gap);
+      }
+      @include b.min(md) {
+        margin-left: var(--gap);
+        padding-left: var(--gap);
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: 188px;
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    span {
+      @include b.min(lg) {
+        display: inline;
+      }
+
+      $margin: 40px;
+
+      display: none;
+      float: left;
+      max-width: 300px;
+      margin-right: $margin;
+      margin-bottom: $margin;
+    }
+  }
+}

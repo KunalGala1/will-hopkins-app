@@ -1,0 +1,10 @@
+@use '../abstracts/' as a;
+
+.dash {
+  background-color: var(--off-white);
+  main {
+    margin-left: a.$aside-width;
+    font-family: a.$font-family-sans;
+    padding: 30px;
+  }
+}

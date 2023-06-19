@@ -1,0 +1,15 @@
+@use '../abstracts/' as a;
+@use '../abstracts/layout/breakpoints' as b;
+
+#contact {
+  max-width: a.$max-width;
+  margin: 0 auto;
+  padding: 30px;
+  p[role='contentinfo'] {
+    padding: 30px;
+    color: var(--light-gray);
+    font-family: a.$font-family-serif;
+    line-height: 2;
+    font-size: 18px;
+  }
+}

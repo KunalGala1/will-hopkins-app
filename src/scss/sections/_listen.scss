@@ -1,0 +1,64 @@
+@use '../abstracts/' as a;
+@use '../abstracts/layout/breakpoints' as b;
+
+#listen {
+  padding-top: 23px;
+  margin: 0 auto;
+  @include b.max(xxl, -1px) {
+    max-width: a.$max-width;
+  }
+
+  .card {
+    font-family: a.$font-family-sans;
+
+    & + .card {
+      @include b.max(xxl, -1px) {
+        margin-top: 50px;
+      }
+    }
+
+    .title,
+    .description {
+      padding: 0 15px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--light-gray);
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray);
+      margin-left: 5px;
+      line-height: 2;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin-top: 20px;
+      background-color: var(--dark-gray);
+    }
+  }
+
+  @include b.min(xxl) {
+    display: flex;
+    flex-wrap: wrap;
+
+    $gap: 3%;
+    gap: $gap;
+
+    .card {
+      width: calc((100% / 2) - ($gap / 2));
+      margin-bottom: 3%;
+    }
+
+    padding: 60px;
+
+    max-width: a.$max-width-xxl;
+  }
+}

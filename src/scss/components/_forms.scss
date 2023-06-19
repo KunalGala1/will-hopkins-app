@@ -1,0 +1,108 @@
+@use '../abstracts/' as a;
+
+.primary-form {
+  .item {
+    &:first-child {
+      display: flex;
+      justify-content: space-between;
+      .subitem {
+        width: 100%;
+        & + .subitem {
+          margin-left: 30px;
+        }
+      }
+    }
+
+    & + .item {
+      margin-top: 17.5px;
+    }
+
+    &:last-child {
+      margin-top: 60px;
+      button {
+        width: 100%;
+      }
+    }
+
+    .subitem {
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--light-gray);
+        font-family: a.$font-family-sans;
+        font-size: 12px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(210, 210, 210, 0.15);
+        background-color: var(--secondary-color);
+        color: var(--light-gray);
+        font-family: a.$font-family-sans;
+        font-size: 18px;
+        resize: none;
+        &:focus {
+          outline: none;
+          border-color: var(--gray);
+        }
+      }
+
+      textarea {
+        height: 200px;
+      }
+    }
+  }
+}
+
+.dash-form {
+  .item {
+    & + .item {
+      margin-top: 17.5px;
+    }
+
+    &.flex {
+      display: flex;
+      justify-content: flex-end;
+      .subitem + .subitem {
+        margin-left: 10px;
+      }
+    }
+
+    .subitem {
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--main);
+        font-family: a.$font-family-sans;
+        font-size: 12px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(210, 210, 210, 0.15);
+        background-color: var(--light-gray);
+        color: var(--main);
+        font-family: a.$font-family-sans;
+        font-size: 18px;
+        resize: none;
+        border-radius: a.$radius-sm;
+        &:focus {
+          outline: none;
+          border-color: rgba(50, 50, 50, 0.15);
+        }
+      }
+
+      textarea {
+        height: 100px;
+
+        &.lg {
+          height: 400px;
+        }
+      }
+    }
+  }
+}

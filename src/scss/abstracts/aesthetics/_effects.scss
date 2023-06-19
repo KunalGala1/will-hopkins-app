@@ -1,0 +1,15 @@
+@use './animations' as a;
+
+$radius: 10px;
+$radius-sm: 5px;
+
+$btn-radius: 5px;
+
+body {
+  @include a.transition($property: padding, $duration: 0.5s);
+  @include a.transition($property: margin, $duration: 0.5s);
+}
+
+@mixin boxshadow() {
+  box-shadow: rgba(64, 64, 64, 0.287) 0px 5px 15px;
+}

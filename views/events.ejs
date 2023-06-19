@@ -4,17 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Home</title>
+    <title>Will Hopkins | Events</title>
     <%- include('partials/head') %>
   </head>
   <body>
-    <%- include('partials/hero') %> <%- include('partials/nav') %>
+    <%- include('partials/nav') %>
     <script>
       document
-        .querySelector('nav ul li:nth-child(1) a')
+        .querySelector('nav ul li:nth-child(2) a')
         .classList.add('active');
     </script>
-    <%- include('partials/carousal') %> <%- include('partials/intro.ejs') %> <%-
-    include('partials/news') %> <%- include('partials/footer') %>
+    <main>
+      <h1 class="main-header">Events</h1>
+    </main>
+    <%- include('partials/footer') %>
   </body>
 </html>

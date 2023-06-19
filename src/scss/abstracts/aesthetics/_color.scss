@@ -1,0 +1,31 @@
+:root {
+  // whites
+  --off-white: rgb(247, 247, 247);
+
+  // grays
+  --light-gray: rgb(210, 210, 210);
+  --mid-gray: rgb(140, 140, 140);
+  --gray: rgb(100, 100, 100);
+  --dark-gray: rgb(35, 35, 35);
+
+  // accent
+  --accent-color: rgba(227, 110, 110, 55%);
+  --accent-color-fade: rgb(227, 110, 110, 10%);
+
+  // theme
+  --main: rgb(23, 10, 10);
+  --main-accent: rgb(136, 57, 59);
+  --main-light: rgb(153, 80, 82);
+  --secondary-color: rgb(15, 0, 0);
+  --secondary-color-dark: rgba(10, 0, 0);
+
+  // compontents
+  --btn-color: rgb(92, 40, 40);
+  --btn-color-hover: rgb(139, 77, 77);
+
+  // util
+  --success: var(--main-accent);
+  --success-hover: var(--main-light);
+  --danger: rgb(121, 66, 35);
+  --danger-hover: rgb(121, 76, 36);
+}

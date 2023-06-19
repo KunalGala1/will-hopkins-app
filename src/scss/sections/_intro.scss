@@ -1,0 +1,22 @@
+@use '../abstracts/' as a;
+@use '../abstracts/layout/breakpoints' as b;
+
+#intro {
+  padding: 0 30px;
+  font-family: a.$font-family-sans;
+  color: var(--light-gray);
+  line-height: 2;
+
+  p {
+    & + p {
+      margin-top: 30px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 30px;
+    }
+  }
+
+  max-width: a.$max-width;
+  margin: 0 auto;
+}

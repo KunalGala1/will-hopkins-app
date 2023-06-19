@@ -1,0 +1,17 @@
+@use '../abstracts/' as a;
+@use '../abstracts/layout/breakpoints' as b;
+
+#carousal {
+  .card {
+    width: 100%;
+
+    padding: 50px;
+
+    blockquote {
+      font-size: 30px;
+    }
+  }
+
+  max-width: a.$max-width;
+  margin: 0 auto;
+}

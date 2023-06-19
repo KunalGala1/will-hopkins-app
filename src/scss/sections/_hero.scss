@@ -1,0 +1,71 @@
+@use '../abstracts/' as a;
+@use '../abstracts/layout/breakpoints' as b;
+
+#hero {
+  position: relative;
+  width: 100%;
+
+  padding-bottom: 15px;
+  height: 50vh;
+  background-color: var(--secondary-color-dark);
+  @include a.transition($property: height, $duration: 0.5s);
+  @include b.min(lg) {
+    height: calc(80vh);
+  }
+
+  hr {
+    border-top: solid 2px var(--secondary-color-A50);
+    // box shadow
+    box-shadow: 0 0 5px var(--secondary-color);
+  }
+
+  img,
+  .gradient {
+    $max-width: 1200px;
+    max-width: $max-width;
+    @include a.transition($property: margin, $duration: 0.5s);
+    @include b.min($max-width + 30px) {
+      margin-top: 15px;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center 15%;
+    z-index: 0;
+  }
+
+  .gradient {
+    background: linear-gradient(#ffffff00, black);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  h1 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 10px 50px;
+    border-radius: a.$radius;
+    font-family: a.$font-family-serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--light-gray);
+
+    z-index: 3;
+  }
+}

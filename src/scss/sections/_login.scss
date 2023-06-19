@@ -1,0 +1,39 @@
+@use '../abstracts/' as a;
+
+#login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-family: a.$font-family-sans;
+    color: var(--light-gray);
+    font-size: 24px;
+    font-weight: 400;
+  }
+  form {
+    width: 500px;
+    border: solid 1px rgba(255, 255, 255, 0.1);
+    padding: 30px;
+  }
+
+  p,
+  a {
+    font-family: a.$font-family-sans;
+    margin: 15px 0;
+    color: var(--gray);
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  a {
+    &:hover {
+      color: var(--light-gray);
+      @include a.transition;
+    }
+  }
+}

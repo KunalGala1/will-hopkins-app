@@ -1,0 +1,42 @@
+@use '../abstracts/' as a;
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: a.$aside-width;
+  height: 100vh;
+  background-color: var(--main);
+  display: flex;
+  flex-direction: column;
+  font-family: a.$font-family-sans;
+  padding: 10px 0;
+
+  a {
+    display: block;
+    padding: 15px;
+    color: var(--light-gray);
+    span {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      background-color: var(--main-accent);
+      color: white;
+    }
+
+    &.active {
+      border-left: solid 5px var(--main-accent);
+    }
+
+    @include a.transition;
+  }
+
+  .top {
+  }
+  .middle {
+  }
+  .bottom {
+    margin-top: auto;
+  }
+}
