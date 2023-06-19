@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Content = require('../models/Content');
-console.log(Content);
 
 router.get('/', async (req, res) => {
   res.render('index');
@@ -12,9 +11,8 @@ router.get('/events', async (req, res) => {
 });
 
 router.get('/bio', async (req, res) => {
-  console.log(Content);
   const data = await Content.findOne({ name: 'bio' });
-  console.log(await Content.find());
+  console.log(data);
   const json = JSON.parse(data.json);
   res.render('bio', {
     quote: json.quote,
