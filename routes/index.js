@@ -12,6 +12,7 @@ router.get('/events', async (req, res) => {
 
 router.get('/bio', async (req, res) => {
   const data = await Content.findOne({ name: 'bio' });
+  console.log(data);
   const json = JSON.parse(data.json);
   res.render('bio', {
     quote: json.quote,
