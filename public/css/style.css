@@ -14,6 +14,7 @@
   --secondary-color-dark: rgba(10, 0, 0);
   --btn-color: rgb(92, 40, 40);
   --btn-color-hover: rgb(139, 77, 77);
+  --hero-bg: rgb(64, 7, 7);
   --success: var(--main-accent);
   --success-hover: var(--main-light);
   --danger: rgb(121, 66, 35);
@@ -411,12 +412,12 @@ aside .bottom {
   width: 100%;
   padding-bottom: 15px;
   height: 50vh;
-  background-color: var(--secondary-color-dark);
+  background-color: var(--hero-bg);
   transition: height 0.5s ease-in-out;
 }
 @media (min-width: 992px) {
   #hero {
-    height: 80vh;
+    height: 95vh;
   }
 }
 #hero hr {
@@ -431,7 +432,8 @@ aside .bottom {
 @media (min-width: 1230px) {
   #hero img,
   #hero .gradient {
-    margin-top: 15px;
+    margin-top: 50px;
+    border-radius: 10px;
   }
 }
 #hero img {
@@ -442,7 +444,7 @@ aside .bottom {
   left: 50%;
   transform: translateX(-50%);
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 8%;
   z-index: 0;
 }
 #hero .gradient {

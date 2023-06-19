@@ -7,10 +7,10 @@
 
   padding-bottom: 15px;
   height: 50vh;
-  background-color: var(--secondary-color-dark);
+  background-color: var(--hero-bg);
   @include a.transition($property: height, $duration: 0.5s);
   @include b.min(lg) {
-    height: calc(80vh);
+    height: calc(95vh);
   }
 
   hr {
@@ -25,7 +25,8 @@
     max-width: $max-width;
     @include a.transition($property: margin, $duration: 0.5s);
     @include b.min($max-width + 30px) {
-      margin-top: 15px;
+      margin-top: 50px;
+      border-radius: a.$radius;
     }
   }
 
@@ -37,7 +38,7 @@
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
-    object-position: center 15%;
+    object-position: center 8%;
     z-index: 0;
   }
 

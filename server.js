@@ -9,11 +9,7 @@ const passport = require('passport');
 
 // db
 const connectDB = require('./config/db');
-// const User = require('./models/User');
 connectDB();
-
-// const Content = require('./models/Content');
-// console.log(Content);
 
 const app = express();
 
