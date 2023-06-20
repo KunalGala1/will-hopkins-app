@@ -15,8 +15,8 @@
   --btn-color: rgb(92, 40, 40);
   --btn-color-hover: rgb(139, 77, 77);
   --hero-bg: rgb(64, 7, 7);
-  --success: var(--main-accent);
-  --success-hover: var(--main-light);
+  --success: green;
+  --success-hover: rgb(0, 157, 0);
   --danger: rgb(121, 66, 35);
   --danger-hover: rgb(121, 76, 36);
 }
@@ -195,6 +195,23 @@ blockquote {
   margin-left: 175px;
   font-family: "Roboto", sans-serif;
   padding: 30px;
+}
+
+.dash-table {
+  color: var(--dark-gray);
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.dash-table td,
+.dash-table th {
+  border: 1px solid var(--light-gray);
+  text-align: left;
+  padding: 4px;
+  white-space: nowrap;
 }
 
 nav {

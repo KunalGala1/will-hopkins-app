@@ -26,8 +26,8 @@
   --hero-bg: rgb(64, 7, 7);
 
   // util
-  --success: var(--main-accent);
-  --success-hover: var(--main-light);
+  --success: green;
+  --success-hover: rgb(0, 157, 0);
   --danger: rgb(121, 66, 35);
   --danger-hover: rgb(121, 76, 36);
 }

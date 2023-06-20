@@ -13,11 +13,13 @@ forms.forEach(form => {
       }
     });
 
+    const method = form.dataset.method;
+    const action = form.dataset.action;
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries());
     const json = JSON.stringify(formObject);
-    const res = await fetch('/dashboard/' + form.name + '/' + form.dataset.id, {
-      method: 'PUT',
+    const res = await fetch(action, {
+      method: method,
       headers: {
         'Content-Type': 'application/json',
       },

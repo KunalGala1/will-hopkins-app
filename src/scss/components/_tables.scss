@@ -1,0 +1,16 @@
+.dash-table {
+  color: var(--dark-gray);
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+  td,
+  th {
+    border: 1px solid var(--light-gray);
+    text-align: left;
+    padding: 4px;
+    white-space: nowrap;
+  }
+}

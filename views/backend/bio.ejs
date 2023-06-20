@@ -17,11 +17,10 @@
     <main id="dashboard-bio">
       <h1 class="dash-header">Biography</h1>
       <form
-        action="/dashboard/bio"
-        method="post"
+        data-method="PUT"
+        data-action="/dashboard/bio/<%= id %>"
         class="dash-form crud"
         name="bio"
-        data-id="<%= id %>"
       >
         <div class="item">
           <div class="subitem">
