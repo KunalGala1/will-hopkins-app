@@ -1,4 +1,6 @@
 @use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 #login {
   width: 100vw;
@@ -8,8 +10,8 @@
   justify-content: center;
   align-items: center;
   h1 {
-    font-family: a.$font-family-sans;
-    color: var(--light-gray);
+    @include t.sans;
+    color: var(--light-grey);
     font-size: 24px;
     font-weight: 400;
   }
@@ -21,9 +23,9 @@
 
   p,
   a {
-    font-family: a.$font-family-sans;
+    @include t.sans;
     margin: 15px 0;
-    color: var(--gray);
+    color: var(--grey);
   }
 
   p {
@@ -32,7 +34,7 @@
 
   a {
     &:hover {
-      color: var(--light-gray);
+      color: var(--light-grey);
       @include a.transition;
     }
   }

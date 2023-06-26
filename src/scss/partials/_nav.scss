@@ -1,7 +1,9 @@
 @use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 nav {
-  font-family: a.$font-family-sans;
+  @include t.sans;
 
   padding: 15px 10px;
   background-color: var(--secondary-color-dark);
@@ -25,7 +27,7 @@ nav {
 
   a {
     font-weight: 300;
-    color: var(--light-gray);
+    color: var(--light-grey);
     &:hover,
     &.active {
       color: var(--off-white);

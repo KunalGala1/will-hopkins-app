@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Will Hopkins | Dashboard | New Event</title>
+    <%- include('../../partials/head') %>
+  </head>
+  <body class="cms">
+    <%- include('../partials/aside') %>
+    <script>
+      document
+        .querySelector('aside .middle ul li:nth-child(1) a')
+        .classList.add('active');
+    </script>
+    <main>
+      <h1 class="secondary-header">New Event</h1>
+      <form
+        data-method="post"
+        data-action="/dashboard/events"
+        class="dashboard-form crud"
+        name="new-event">
+        <div class="item">
+          <div class="subitem">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              required />
+            <input
+              type="hidden"
+              name="slug" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="shortDescription">Short Description</label>
+            <textarea
+              id=""
+              cols="30"
+              rows="10"
+              data-tinymce="shortDescription"
+              name="shortDescription"></textarea>
+            <script>
+              tinymce.init({
+                selector: 'textarea[data-tinymce="shortDescription"]',
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                height: 300,
+              });
+            </script>
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="date">Date</label>
+            <input
+              type="date"
+              name="date" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="time">Time</label>
+            <input
+              type="time"
+              name="time" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="url">URL</label>
+            <input
+              type="url"
+              name="url" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              name="location" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="image">Image</label>
+            <input
+              type="file"
+              name="image" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="longDescription">Long Description</label>
+            <textarea
+              id=""
+              cols="30"
+              rows="10"
+              data-tinymce="longDescription"
+              name="longDescription"></textarea>
+            <script>
+              tinymce.init({
+                selector: 'textarea[data-tinymce="longDescription"]',
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                height: 500,
+              });
+            </script>
+          </div>
+        </div>
+        <div class="item flex">
+          <div class="subitem">
+            <button
+              type="submit"
+              class="success-btn">
+              Save
+            </button>
+          </div>
+          <div class="subitem"><button class="danger-btn">Cancel</button></div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

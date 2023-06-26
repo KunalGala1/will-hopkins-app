@@ -1,9 +1,29 @@
-@forward 'bio';
 @forward 'carousal';
-@forward 'contact';
+
+/* Home Page */
 @forward 'hero';
 @forward 'intro';
-@forward 'listen';
 @forward 'news';
+
+/* Events */
+@forward 'events';
+@forward 'event';
+
+/* Bio Page */
+@forward 'bio';
+
+/* Contact Page */
+@forward 'contact';
+
+/* Listen Page */
+@forward 'listen';
+
+/* News Page */
+
+/* Login Page */
 @forward 'login';
-@forward 'dashboard';
+
+/*=============================*/
+
+/* dashboard Folder */
+@forward 'cms';

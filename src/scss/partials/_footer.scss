@@ -1,4 +1,6 @@
 @use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 footer {
   background-color: var(--secondary-color);
@@ -9,14 +11,14 @@ footer {
   ul {
     display: flex;
     justify-content: space-around;
-    color: var(--gray);
+    color: var(--grey);
     a {
       font-size: 30px;
 
       cursor: pointer;
 
       &:hover {
-        color: var(--light-gray);
+        color: var(--light-grey);
         @include a.transition($duration: 0.1s);
       }
     }
@@ -26,10 +28,10 @@ footer {
   }
 
   .copyright {
-    color: var(--gray);
+    color: var(--grey);
     display: block;
     text-align: center;
-    font-family: a.$font-family-sans;
+    @include t.sans;
     font-size: 12px;
     margin-top: 20px;
   }

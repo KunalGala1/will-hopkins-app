@@ -1,0 +1,12 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+.cms {
+  background-color: var(--off-white);
+  main {
+    margin-left: map-get(l.$width, aside);
+    @include t.sans;
+    padding: 30px;
+  }
+}

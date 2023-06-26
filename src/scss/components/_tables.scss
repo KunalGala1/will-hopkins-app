@@ -1,16 +1,38 @@
-.dash-table {
-  color: var(--dark-gray);
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+.primary-table {
+  color: var(--dark-grey);
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--light-grey);
   border-radius: 4px;
   overflow: hidden;
   td,
   th {
-    border: 1px solid var(--light-gray);
+    border: 1px solid var(--light-grey);
     text-align: left;
-    padding: 4px;
+    padding: 15px;
     white-space: nowrap;
+  }
+
+  col.icon {
+    width: 1%;
+  }
+
+  a.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
   }
 }

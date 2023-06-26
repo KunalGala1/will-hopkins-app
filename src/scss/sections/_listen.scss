@@ -1,18 +1,19 @@
 @use '../abstracts/' as a;
-@use '../abstracts/layout/breakpoints' as b;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 #listen {
   padding-top: 23px;
   margin: 0 auto;
-  @include b.max(xxl, -1px) {
-    max-width: a.$max-width;
+  @include l.max(xxl, -1px) {
+    @include l.max-width(md);
   }
 
   .card {
-    font-family: a.$font-family-sans;
+    @include t.sans;
 
     & + .card {
-      @include b.max(xxl, -1px) {
+      @include l.max(xxl, -1px) {
         margin-top: 50px;
       }
     }
@@ -25,14 +26,14 @@
     .title {
       font-size: 20px;
       font-weight: 400;
-      color: var(--light-gray);
+      color: var(--light-grey);
       margin-bottom: 10px;
     }
 
     .description {
       font-size: 16px;
       font-weight: 300;
-      color: var(--gray);
+      color: var(--grey);
       margin-left: 5px;
       line-height: 2;
     }
@@ -41,11 +42,11 @@
       width: 100%;
       aspect-ratio: 16/9;
       margin-top: 20px;
-      background-color: var(--dark-gray);
+      background-color: var(--dark-grey);
     }
   }
 
-  @include b.min(xxl) {
+  @include l.min(xxl) {
     display: flex;
     flex-wrap: wrap;
 
@@ -59,6 +60,6 @@
 
     padding: 60px;
 
-    max-width: a.$max-width-xxl;
+    @include l.max-width(xxl);
   }
 }

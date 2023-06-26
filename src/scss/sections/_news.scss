@@ -1,15 +1,15 @@
 @use '../abstracts/' as a;
-@use '../abstracts/layout/breakpoints' as b;
-
+@use '../layout' as l;
+@use '../theme/' as t;
 #news {
   padding: 100px 0;
 
   h1 {
     text-align: center;
-    max-width: a.$max-width;
+    @include l.max-width(md);
     margin: 0 auto;
-    font-family: a.$font-family-sans;
-    color: var(--gray);
+    @include t.sans;
+    color: var(--grey);
     font-size: 32px;
   }
 
@@ -17,14 +17,14 @@
     background-color: var(--accent-color);
     padding: 30px;
     margin: 30px 0;
-    @include a.boxshadow;
+    @include t.boxshadow;
 
     .container {
-      max-width: a.$max-width;
+      @include l.max-width(md);
       margin: 0 auto;
       p {
         font-size: 22px;
-        color: var(--light-gray);
+        color: var(--light-grey);
       }
     }
   }

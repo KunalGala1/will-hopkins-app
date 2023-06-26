@@ -1,10 +1,11 @@
 @use '../abstracts/' as a;
-@use '../abstracts/layout/breakpoints' as b;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 #intro {
   padding: 0 30px;
-  font-family: a.$font-family-sans;
-  color: var(--light-gray);
+  @include t.sans;
+  color: var(--light-grey);
   line-height: 2;
 
   p {
@@ -17,6 +18,6 @@
     }
   }
 
-  max-width: a.$max-width;
+  @include l.max-width(md);
   margin: 0 auto;
 }

@@ -1,4 +1,6 @@
 @use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 .primary-form {
   .item {
@@ -29,7 +31,7 @@
         display: block;
         margin-bottom: 5px;
         color: var(--light-gray);
-        font-family: a.$font-family-sans;
+        @include t.sans;
         font-size: 12px;
       }
 
@@ -40,7 +42,7 @@
         border: 1px solid rgba(210, 210, 210, 0.15);
         background-color: var(--secondary-color);
         color: var(--light-gray);
-        font-family: a.$font-family-sans;
+        @include t.sans;
         font-size: 18px;
         resize: none;
         &:focus {
@@ -56,7 +58,7 @@
   }
 }
 
-.dash-form {
+.dashboard-form {
   .item {
     & + .item {
       margin-top: 17.5px;
@@ -75,7 +77,7 @@
         display: block;
         margin-bottom: 5px;
         color: var(--main);
-        font-family: a.$font-family-sans;
+        @include t.sans;
         font-size: 12px;
       }
 
@@ -83,13 +85,13 @@
       textarea {
         width: 100%;
         padding: 10px;
-        border: 1px solid rgba(210, 210, 210, 0.15);
-        background-color: var(--light-gray);
-        color: var(--main);
-        font-family: a.$font-family-sans;
+        border: none;
+        background-color: var(--form);
+        color: var(--off-white);
+        @include t.sans;
         font-size: 18px;
         resize: none;
-        border-radius: a.$radius-sm;
+        @include l.radius(sm);
         &:focus {
           outline: none;
           border-color: rgba(50, 50, 50, 0.15);

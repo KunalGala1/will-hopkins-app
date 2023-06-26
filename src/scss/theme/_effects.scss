@@ -1,0 +1,8 @@
+$radius: 10px;
+$radius-sm: 5px;
+
+$btn-radius: 5px;
+
+@mixin boxshadow() {
+  box-shadow: rgba(64, 64, 64, 0.287) 0px 5px 15px;
+}

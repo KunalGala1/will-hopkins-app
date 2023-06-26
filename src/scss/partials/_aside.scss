@@ -1,21 +1,23 @@
 @use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 aside {
   position: fixed;
   top: 0;
   left: 0;
-  width: a.$aside-width;
+  width: map-get(l.$width, aside);
   height: 100vh;
   background-color: var(--main);
   display: flex;
   flex-direction: column;
-  font-family: a.$font-family-sans;
+  @include t.sans;
   padding: 10px 0;
 
   a {
     display: block;
     padding: 15px;
-    color: var(--light-gray);
+    color: var(--light-grey);
     span {
       margin-left: 5px;
     }

@@ -1,18 +1,20 @@
 @use '../abstracts/' as a;
-@use '../abstracts/layout/breakpoints' as b;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 #bio {
   --gap: 30px;
   padding: var(--gap);
   @include a.transition($property: padding, $duration: 0.5s);
-  @include b.min(lg) {
-    padding: calc(var(--gap) * 2);
+  @include l.min(lg) {
+    padding-left: calc(var(--gap) * 3);
+    padding-right: calc(var(--gap) * 3);
   }
-  max-width: a.$max-width-lg;
+  @include l.max-width(bio);
   margin: 0 auto;
 
   .block:first-child {
-    @include b.min(lg) {
+    @include l.min(lg) {
       display: none;
     }
   }
@@ -22,7 +24,7 @@
     margin-left: auto;
     margin-right: auto;
     opacity: 75%;
-    border-radius: a.$radius;
+    @include l.radius(md);
   }
   blockquote {
     max-width: 400px;
@@ -30,7 +32,7 @@
   }
 
   .block + .block {
-    @include b.max(lg, -1px) {
+    @include l.max(lg, -1px) {
       margin-top: var(--gap);
     }
   }
@@ -38,12 +40,18 @@
   .content {
     display: flex;
     flex-direction: column;
-    @include b.min(md) {
+    @include l.min(md) {
       flex-direction: row;
     }
 
-    font-family: a.$font-family-sans;
-    color: var(--light-gray);
+    .text {
+      @include t.serif;
+    }
+    .files {
+      @include t.sans;
+    }
+
+    color: var(--light-grey);
     line-height: 2;
 
     p + p {
@@ -51,10 +59,10 @@
     }
 
     div + div {
-      @include b.max(md, -1px) {
+      @include l.max(md, -1px) {
         margin-top: var(--gap);
       }
-      @include b.min(md) {
+      @include l.min(md) {
         margin-left: var(--gap);
         padding-left: var(--gap);
         position: relative;
@@ -79,7 +87,7 @@
     }
 
     span {
-      @include b.min(lg) {
+      @include l.min(lg) {
         display: inline;
       }
 

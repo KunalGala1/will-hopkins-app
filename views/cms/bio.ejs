@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will Hopkins | Dashboard | Bio</title>
+    <%- include('../partials/head') %>
+  </head>
+  <body class="cms">
+    <%- include('partials/aside') %>
+    <script>
+      document
+        .querySelector('aside .middle ul li:nth-child(2) a')
+        .classList.add('active');
+    </script>
+    <main id="dashboard-bio">
+      <h1 class="secondary-header">Biography</h1>
+      <form
+        data-method="PUT"
+        data-action="/dashboard/bio/<%= id %>"
+        class="dashboard-form crud"
+        name="bio"
+      >
+        <div class="item">
+          <div class="subitem">
+            <label for="image">Image</label>
+            <input type="file" name="image" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="quote">Quote</label>
+            <textarea
+              data-tinymce="quote"
+              name="quote"
+              id=""
+              cols="30"
+              rows="10"
+            >
+<%= quote %></textarea
+            >
+            <script>
+              tinymce.init({
+                selector: 'textarea[data-tinymce="quote"]',
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                height: 300,
+              });
+            </script>
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="shortBioFile">Short Bio</label>
+            <input type="file" name="shortBioFile" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="longBioFile">Long Bio</label>
+            <input type="file" name="longBioFile" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="bio">Bio</label>
+            <textarea
+              data-tinymce="bio"
+              name="bio"
+              id=""
+              cols="30"
+              rows="10"
+              class="lg"
+            >
+          <%= bio %>
+          </textarea
+            >
+            <script>
+              tinymce.init({
+                selector: 'textarea[data-tinymce="bio"]',
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                height: 500,
+              });
+            </script>
+          </div>
+        </div>
+        <div class="item flex">
+          <div class="subitem">
+            <button type="submit" class="success-btn">Save</button>
+          </div>
+          <div class="subitem"><button class="danger-btn">Cancel</button></div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,14 +1,15 @@
 @use '../abstracts/' as a;
-@use '../abstracts/layout/breakpoints' as b;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 #contact {
-  max-width: a.$max-width;
+  @include l.max-width(md);
   margin: 0 auto;
   padding: 30px;
   p[role='contentinfo'] {
     padding: 30px;
-    color: var(--light-gray);
-    font-family: a.$font-family-serif;
+    color: var(--light-grey);
+    @include t.serif;
     line-height: 2;
     font-size: 18px;
   }

@@ -1,0 +1,83 @@
+$hero-height: 60vh;
+
+// max width
+$max-width: 700px;
+$max-width-lg: 1000px;
+$max-width-xxl: 1900px;
+
+$mw: (
+  xxs: 319.98px,
+  xs: 575.98px,
+  sm: 767.98px,
+  md: 700px,
+  lg: 1000px,
+  xl: 1399.98px,
+  xxl: 1900px,
+
+  // custom
+  bio: 1460px,
+) !default;
+
+@mixin max-width($key, $margin-horitonzal: auto, $margin-vertical: 0) {
+  @if map-has-key($mw, $key) {
+    max-width: map-get($mw, $key);
+  } @else {
+    max-width: $key;
+  }
+
+  margin-left: $margin-horitonzal;
+  margin-right: $margin-horitonzal;
+
+  margin-top: $margin-vertical;
+  margin-bottom: $margin-vertical;
+}
+
+// dashboard
+$aside-width: 175px;
+
+$width: (
+  aside: 175px,
+);
+
+$radius: (
+  xxs: 0.1rem,
+  xs: 0.2rem,
+  sm: 5px,
+  md: 10px,
+  lg: 0.5rem,
+  xl: 0.6rem,
+) !default;
+
+@mixin radius($key) {
+  @if map-has-key($radius, $key) {
+    border-radius: map-get($radius, $key);
+  } @else {
+    border-radius: $key;
+  }
+}
+
+$padding: (
+  xxs: 2.5px,
+  xs: 5px,
+  sm: 15px,
+  md: 30px,
+  lg: 60px,
+  xl: 120px,
+) !default;
+
+@mixin padding($vertical-padding, $horizontal-padding: $vertical-padding) {
+  @if map-has-key($padding, $vertical-padding) {
+    padding-top: map-get($padding, $vertical-padding);
+    padding-bottom: map-get($padding, $vertical-padding);
+  } @else {
+    padding-top: $vertical-padding;
+    padding-bottom: $vertical-padding;
+  }
+  @if map-has-key($padding, $horizontal-padding) {
+    padding-left: map-get($padding, $horizontal-padding);
+    padding-right: map-get($padding, $horizontal-padding);
+  } @else {
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+  }
+}

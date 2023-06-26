@@ -1,0 +1,9 @@
+@use '../../abstracts/' as a;
+
+#dashboard-home {
+  h1 {
+    text-align: center;
+    color: var(--light-grey);
+    font-weight: 500;
+  }
+}

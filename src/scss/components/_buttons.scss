@@ -1,0 +1,51 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+.btn-primary {
+  background-color: var(--btn-color);
+  @include t.sans;
+  padding: 5px 15px;
+  @include l.radius(sm);
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+  color: var(--light-grey);
+  @include a.transition($duration: 0.1s);
+  &:hover {
+    background-color: var(--btn-color-hover);
+    outline: solid 1px white;
+    color: white;
+  }
+}
+
+.success-btn {
+  background-color: var(--success);
+  @include t.sans;
+  padding: 5px 15px;
+  @include l.radius(sm);
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+  color: var(--light-grey);
+  @include a.transition($duration: 0.1s);
+  &:hover {
+    background-color: var(--success-hover);
+    outline: solid 1px white;
+    color: white;
+  }
+}
+
+.danger-btn {
+  background-color: transparent;
+  @include t.sans;
+  padding: 5px 15px;
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+  color: var(--grey);
+  @include a.transition($duration: 0.1s);
+  &:hover {
+    color: black;
+  }
+}
