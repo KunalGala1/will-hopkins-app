@@ -31,3 +31,17 @@
   text-align: center;
   margin: 100px 0;
 }
+
+.event-link {
+  color: var(--form);
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  display: block;
+  width: max-content;
+  margin: 15px 0 30px;
+  i {
+    margin-left: 5px;
+  }
+}

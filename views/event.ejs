@@ -1,3 +1,5 @@
+<% const eventObject = JSON.parse(event.json); %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +10,7 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Events</title>
+    <title>Will Hopkins | <%= eventObject.title %></title>
     <%- include('partials/head') %>
   </head>
   <body>
@@ -20,15 +22,19 @@
     </script>
     <main id="event">
       <div class="banner">
-        <div class="image-container"></div>
+        <div class="image-container">
+          <img
+            src="/uploads/<%= eventObject.file.filename %>"
+            alt="" />
+        </div>
       </div>
       <div class="header">
-        <h1 class="event-header"><%= JSON.parse(event.json).title %></h1>
-        <span class="date"><%= JSON.parse(event.json).date %></span>
-        <span class="time"><%= JSON.parse(event.json).time %></span>
-        <span class="location"><%= JSON.parse(event.json).location %></span>
+        <h1 class="event-header"><%= eventObject.title %></h1>
+        <span class="date"><%= eventObject.date %></span>
+        <span class="time"><%= eventObject.time %></span>
+        <span class="location"><%= eventObject.location %></span>
       </div>
-      <div class="content"><%- JSON.parse(event.json).longDescription %></div>
+      <div class="content"><%- eventObject.longDescription %></div>
     </main>
     <%- include('partials/footer') %>
   </body>

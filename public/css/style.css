@@ -105,6 +105,20 @@ blockquote {
   margin: 100px 0;
 }
 
+.event-link {
+  color: var(--form);
+  text-decoration: underline;
+  display: block;
+  width: max-content;
+  margin: 15px 0 30px;
+}
+.event-link:hover {
+  text-decoration: none;
+}
+.event-link i {
+  margin-left: 5px;
+}
+
 .primary-form .item:first-child {
   display: flex;
   justify-content: space-between;
@@ -167,6 +181,7 @@ blockquote {
   color: var(--main);
   font-family: "Roboto", sans-serif;
   font-size: 12px;
+  text-transform: capitalize;
 }
 .dashboard-form .item .subitem input,
 .dashboard-form .item .subitem textarea {
@@ -190,6 +205,10 @@ blockquote {
 }
 .dashboard-form .item .subitem textarea.lg {
   height: 400px;
+}
+.dashboard-form .item .subitem img {
+  max-width: 400px;
+  margin: 15px 0;
 }
 
 .primary-table {
@@ -344,6 +363,7 @@ aside .bottom {
 }
 #carousal .card blockquote {
   font-size: 30px;
+  text-align: center;
 }
 
 #hero {
@@ -458,11 +478,18 @@ aside .bottom {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
+  text-align: center;
   margin: 0 auto;
 }
 #news .banner .container p {
   font-size: 22px;
   color: var(--light-grey);
+}
+#news .banner .container a {
+  text-decoration: underline;
+}
+#news .banner .container a:hover {
+  text-decoration: none;
 }
 
 #events[data-cli] .container {
@@ -497,6 +524,13 @@ aside .bottom {
   background-color: rgba(100, 100, 100, 0.1);
   border-radius: 10px;
 }
+#events[data-cli] .card .image-container img {
+  height: 100%;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 10px;
+}
 #events[data-cli] .card .title {
   font-family: "Georgia", serif;
   font-size: 25px;
@@ -520,10 +554,15 @@ aside .bottom {
   padding-bottom: 60px;
 }
 #event .banner {
-  height: 400px;
-  width: 100%;
   background-color: rgba(50, 50, 50, 0.5);
   margin: 30px 0;
+  overflow: hidden;
+}
+#event .banner img {
+  max-height: 100vh;
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
 }
 #event .header {
   max-width: 700px;
@@ -770,14 +809,18 @@ aside .bottom {
   transition: all 0.3s ease-in-out;
 }
 
-#dashboard-home h1 {
-  text-align: center;
-  color: var(--light-grey);
-  font-weight: 500;
-}
-
 #events[data-cms] .btn-primary {
   margin: 0 0 30px;
+}
+#events[data-cms] .no-padding {
+  padding: 0;
+}
+#events[data-cms] .box {
+  max-width: 75px;
+}
+#events[data-cms] img {
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Home Page */

@@ -20,10 +20,21 @@
     </script>
     <main>
       <h1 class="secondary-header">Edit Event</h1>
+
+      <a
+        href="/event/<%= JSON.parse(event.json).slug %>"
+        class="event-link"
+        target="_blank">
+        <%= JSON.parse(event.json).slug %>
+        <i class="fa-solid fa-up-right-from-square"></i>
+      </a>
+
       <form
         data-method="put"
         data-action="/dashboard/events/<%= event._id %>"
-        class="dashboard-form crud">
+        data-id="<%= event._id %>"
+        class="dashboard-form crud"
+        enctype="multipart/form-data">
         <div class="item">
           <div class="subitem">
             <label for="title">Title</label>
@@ -99,8 +110,13 @@
             <label for="image">Image</label>
             <input
               type="file"
-              name="image"
-              value="<%= JSON.parse(event.json).image %>" />
+              name="file"
+              value="" />
+            <div class="preview">
+              <img
+                src="/uploads/<%= JSON.parse(event.json).file.filename %>"
+                alt="" />
+            </div>
           </div>
         </div>
         <div class="item">
@@ -132,9 +148,19 @@
               Save
             </button>
           </div>
-          <div class="subitem"><button class="danger-btn">Cancel</button></div>
+          <div class="subitem">
+            <button
+              type="reset"
+              class="danger-btn">
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
     </main>
   </body>
+
+  <script
+    src="/js/previewEventImage.js"
+    defer></script>
 </html>

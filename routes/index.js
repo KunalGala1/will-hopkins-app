@@ -4,7 +4,10 @@ const Content = require('../models/Content');
 const Event = require('../models/Event');
 
 router.get('/', async (req, res) => {
-  res.render('index');
+  const quote = await Content.findOne({ name: 'quote' });
+  const intro = await Content.findOne({ name: 'intro' });
+  const news = await Content.findOne({ name: 'news' });
+  res.render('index', { quote, intro, news });
 });
 
 router.get('/events', async (req, res) => {
@@ -17,7 +20,7 @@ router.get('/event/:slug', async (req, res) => {
   const event = events.find(
     event => JSON.parse(event.json).slug === req.params.slug
   );
-  if (!event) res.render('event', { event: 'db conn failed' });
+  if (event == undefined) res.redirect('/events');
   else {
     res.render('event', { event });
   }

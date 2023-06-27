@@ -5,10 +5,15 @@
 #event {
   padding-bottom: 60px;
   .banner {
-    height: 400px;
-    width: 100%;
     background-color: rgba(50, 50, 50, 0.5);
     margin: 30px 0;
+    overflow: hidden;
+    img {
+      max-height: 100vh;
+      object-position: center;
+      object-fit: cover;
+      width: 100%;
+    }
   }
   .header {
     @include l.max-width(md);

@@ -79,6 +79,7 @@
         color: var(--main);
         @include t.sans;
         font-size: 12px;
+        text-transform: capitalize;
       }
 
       input,
@@ -104,6 +105,11 @@
         &.lg {
           height: 400px;
         }
+      }
+
+      img {
+        max-width: 400px;
+        margin: 15px 0;
       }
     }
   }

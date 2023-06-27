@@ -21,10 +21,17 @@
 
     .container {
       @include l.max-width(md);
+      text-align: center;
       margin: 0 auto;
       p {
         font-size: 22px;
         color: var(--light-grey);
+      }
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }

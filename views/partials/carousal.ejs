@@ -1,8 +1,6 @@
 <section id="carousal">
   <div class="card">
-    <blockquote>
-      &ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
-      deserunt.&rdquo;
-    </blockquote>
+    <blockquote>&ldquo;<%= JSON.parse(quote.json).quote %>&rdquo;</blockquote>
+    <blockquote>&mdash;<%= JSON.parse(quote.json).attribution %></blockquote>
   </div>
 </section>

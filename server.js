@@ -6,12 +6,27 @@ const path = require('path');
 const cors = require('cors');
 const session = require('express-session');
 const passport = require('passport');
+const multer = require('multer');
+const flash = require('connect-flash');
 
 // db
 const connectDB = require('./config/db');
 connectDB();
 
 const app = express();
+
+// Multer
+const storage = multer.diskStorage({
+  destination: 'public/uploads',
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+const upload = multer({ storage: storage });
+app.post('/upload', upload.single('file'), (req, res) => {
+  console.log(req.file);
+  res.json({ success: true, file: req.file });
+});
 
 // Passport config
 require('./config/passport')(passport);

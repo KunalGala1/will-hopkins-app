@@ -1,15 +1,8 @@
 <section id="intro">
-  <p>
-    Will Hopkins is lorem sit amet consectetur adipisicing elit. Ut veniam
-    assumenda quisquam magni aliquam, sint maiores perferendis obcaecati aut,
-    necessitatibus vero ipsam commodi modipsum dolor, sit.
-  </p>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut veniam
-    assumenda quisquam magni aliquam, sint maiores perferendis obcaecati aut,
-    necessitatibus vero ipsam onsectetur nam, blanditiis recusandae inventore
-    culpa fugit libero unde debitis dicta! Deserunt laudantium sint quae
-    similique?
-  </p>
-  <a class="btn-primary" href="/bio">Read More</a>
+  <%- JSON.parse(intro.json).intro %>
+  <a
+    class="btn-primary"
+    href="/bio">
+    Read More
+  </a>
 </section>

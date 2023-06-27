@@ -25,6 +25,13 @@
       height: 200px;
       background-color: rgba(100, 100, 100, 0.1);
       @include l.radius(md);
+      img {
+        height: 100%;
+        width: 100%;
+        object-position: center;
+        object-fit: cover;
+        @include l.radius(md);
+      }
     }
 
     .title {

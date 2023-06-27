@@ -2,9 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | dashboard</title>
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Will Hopkins | Dashboard</title>
     <%- include('../partials/head') %>
   </head>
   <body class="cms">
@@ -14,6 +18,137 @@
         .querySelector('aside ul li:nth-child(2) a')
         .classList.add('active');
     </script>
-    <main id="dashboard-home"></main>
+    <main id="dashboard-home">
+      <h1 class="secondary-header">Welcome <%= name %></h1>
+      <form
+        data-method="put"
+        data-action="/dashboard/quote/<%= quote._id %>"
+        data-id="<%= quote._id %>"
+        class="dashboard-form crud">
+        <div class="item">
+          <div class="subitem">
+            <label for="">Quote</label>
+            <input
+              type="text"
+              name="quote"
+              value="<%= JSON.parse(quote.json).quote %>" />
+          </div>
+        </div>
+        <div class="item">
+          <div class="subitem">
+            <label for="">attribution</label>
+            <input
+              type="text"
+              name="attribution"
+              value="<%= JSON.parse(quote.json).attribution %>" />
+          </div>
+        </div>
+        <div class="item flex">
+          <div class="subitem">
+            <button
+              type="submit"
+              class="success-btn">
+              Save
+            </button>
+          </div>
+          <div class="subitem">
+            <button
+              type="reset"
+              class="danger-btn">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <form
+        data-method="put"
+        data-action="/dashboard/intro/<%= intro._id %>"
+        data-id="<%= intro._id %>"
+        class="dashboard-form crud">
+        <div class="item">
+          <div class="subitem">
+            <label for="">Intro</label>
+            <textarea
+              id=""
+              cols="30"
+              rows="10"
+              data-tinymce="intro"
+              name="intro">
+            <%= JSON.parse(intro.json).intro %>
+            </textarea>
+            <script>
+              tinymce.init({
+                selector: 'textarea[data-tinymce="intro"]',
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                height: 500,
+              });
+            </script>
+          </div>
+        </div>
+        <div class="item flex">
+          <div class="subitem">
+            <button
+              type="submit"
+              class="success-btn">
+              Save
+            </button>
+          </div>
+          <div class="subitem">
+            <button
+              type="reset"
+              class="danger-btn">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+      <form
+        data-method="put"
+        data-action="/dashboard/news/<%= news._id %>"
+        data-id="<%= news._id %>"
+        class="dashboard-form crud">
+        <div class="item">
+          <div class="subitem">
+            <label for="news">news</label>
+            <textarea
+              id=""
+              cols="30"
+              rows="10"
+              data-tinymce="news"
+              name="news">
+          <%= JSON.parse(news.json).news %>
+          </textarea
+            >
+            <script>
+              tinymce.init({
+                selector: 'textarea[data-tinymce="news"]',
+                skin: 'oxide-dark',
+                content_css: 'dark',
+                height: 500,
+                plugins: 'link',
+              });
+            </script>
+          </div>
+        </div>
+        <div class="item flex">
+          <div class="subitem">
+            <button
+              type="submit"
+              class="success-btn">
+              Save
+            </button>
+          </div>
+          <div class="subitem">
+            <button
+              type="reset"
+              class="danger-btn">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

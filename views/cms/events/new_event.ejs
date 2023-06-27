@@ -24,7 +24,8 @@
         data-method="post"
         data-action="/dashboard/events"
         class="dashboard-form crud"
-        name="new-event">
+        name="new-event"
+        enctype="multipart/form-data">
         <div class="item">
           <div class="subitem">
             <label for="title">Title</label>
@@ -93,7 +94,11 @@
             <label for="image">Image</label>
             <input
               type="file"
-              name="image" />
+              name="file" />
+            <div class="preview"></div>
+            <img
+              src=""
+              alt="" />
           </div>
         </div>
         <div class="item">
@@ -123,9 +128,19 @@
               Save
             </button>
           </div>
-          <div class="subitem"><button class="danger-btn">Cancel</button></div>
+          <div class="subitem">
+            <button
+              type="reset"
+              class="danger-btn">
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
     </main>
+
+    <script
+      src="/js/previewEventImage.js"
+      defer></script>
   </body>
 </html>

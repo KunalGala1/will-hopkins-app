@@ -26,34 +26,94 @@ forms.forEach(form => {
     const action = form.dataset.action;
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries());
-    const json = JSON.stringify(formObject);
-    const res = await fetch(action, {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: json,
-    });
-    const data = await res.json();
 
-    if (data.success) {
-      switch (data.switch) {
-        case 'delete_event':
-          document
-            .querySelector('[data-id="' + data.deletedEvent._id + '"]')
-            .remove();
-          break;
-        case 'new_event':
-          window.location.replace(
-            '/dashboard/events/' + data.newEvent._id + '/edit'
-          );
-        case 'edit_event':
-          window.scroll(0, 0);
-        default:
-          break;
+    // File upload
+    const uploadFile = async fileInput => {
+      const file = fileInput.files[0];
+      const formData = new FormData();
+      formData.append('file', file);
+      const res = await fetch('/upload', {
+        method: 'post',
+        body: formData,
+      });
+      const data = await res.json();
+      console.log(data);
+
+      formObject.file = data.file;
+    };
+
+    const persistFile = async () => {
+      const res = await fetch('/dashboard/events/' + form.dataset.id, {
+        method: 'get',
+      });
+      const data = await res.json();
+      console.log(data);
+
+      formObject.file = JSON.parse(data.event.json).file;
+    };
+
+    const fileInputs = form.querySelectorAll('input[type="file"]');
+    const promises = [];
+
+    for (const fileInput of fileInputs) {
+      if (method == 'post') {
+        // upload file
+        if (fileInput.files.length > 0) {
+          promises.push(uploadFile(fileInput));
+        } else {
+          alert('Please upload a file');
+          return;
+        }
+      } else if (method == 'put') {
+        if (fileInput.files.length > 0) {
+          promises.push(uploadFile(fileInput));
+        } else {
+          // No changes were made to the file
+          promises.push(persistFile());
+        }
       }
-    } else {
-      console.log(data.error);
     }
+
+    Promise.all(promises)
+      .then(async () => {
+        const json = JSON.stringify(formObject);
+
+        const res = await fetch(action, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: json,
+        });
+        const data = await res.json();
+        console.log(data);
+
+        /* ====================================================== */
+
+        /* Responses */
+
+        switch (data.reaction) {
+          case 'deletedEvent':
+            document
+              .querySelector('[data-id="' + data.deletedEvent._id + '"]')
+              .remove();
+            break;
+
+          case 'newEvent':
+            window.location.replace(
+              '/dashboard/events/' + data.newEvent._id + '/edit'
+            );
+            break;
+
+          case 'updatedEvent':
+            break;
+
+          default:
+            break;
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   });
 });

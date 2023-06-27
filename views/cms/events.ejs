@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <title>Will Hopkins | Dashboard | Events</title>
     <%- include('../partials/head') %>
   </head>
@@ -14,9 +18,15 @@
         .querySelector('aside .middle ul li:nth-child(1) a')
         .classList.add('active');
     </script>
-    <main id="events" data-cms>
+    <main
+      id="events"
+      data-cms>
       <h1 class="secondary-header">Events</h1>
-      <a class="btn-primary" href="/dashboard/events/new">Add New</a>
+      <a
+        class="btn-primary"
+        href="/dashboard/events/new">
+        Add New
+      </a>
       <table class="primary-table">
         <colgroup>
           <col />
@@ -28,18 +38,33 @@
         <tr>
           <th>Title</th>
           <th>Date</th>
-          <th>Image</th>
+          <th class="box">Image</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
 
         <% for( let i = 0; i < events.length; i++ ) { %>
         <tr data-id="<%= events[i]._id %>">
-          <td><%= JSON.parse(events[i].json).title %></td>
-          <td><%= events[i].date.toDateString() %></td>
-          <td>Image</td>
           <td>
-            <a href="/dashboard/events/<%= events[i]._id %>/edit" class="icon">
+            <a
+              href="/event/<%= JSON.parse(events[i].json).slug %>"
+              target="_blank"
+              class="event-link">
+              <%= JSON.parse(events[i].json).title %>
+            </a>
+          </td>
+          <td><%= events[i].date.toDateString() %></td>
+          <td class="box no-padding">
+            <div class="image-container">
+              <img
+                src="/uploads/<%= JSON.parse(events[i].json).file.filename %>"
+                alt="" />
+            </div>
+          </td>
+          <td>
+            <a
+              href="/dashboard/events/<%= events[i]._id %>/edit"
+              class="icon">
               <i class="fa-solid fa-pen-to-square"></i>
             </a>
           </td>
@@ -47,9 +72,10 @@
             <form
               data-method="delete"
               data-action="/dashboard/events/<%= events[i]._id %>/delete"
-              class="crud"
-            >
-              <button type="submit" class="icon">
+              class="crud">
+              <button
+                type="submit"
+                class="icon">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </form>

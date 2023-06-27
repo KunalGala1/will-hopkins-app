@@ -26,7 +26,11 @@
 
         <div class="card">
           <a href="/event/<%= JSON.parse(events[i].json).slug %>">
-            <div class="image-container"></div>
+            <div class="image-container">
+              <img
+                src="/uploads/<%= JSON.parse(events[i].json).file.filename %>"
+                alt="" />
+            </div>
           </a>
           <div class="content">
             <h3 class="title">
