@@ -8,23 +8,18 @@ const Event = require('../models/Event');
 const { forwardAuthenticated } = require('../config/auth');
 const { ensureAuthenticated } = require('../config/auth');
 
-router.get(
-  '/',
-  // ensureAuthenticated,
-  async (req, res) => {
-    const quote = await Content.findOne({ name: 'quote' });
-    const intro = await Content.findOne({ name: 'intro' });
-    const news = await Content.findOne({ name: 'news' });
+router.get('/', ensureAuthenticated, async (req, res) => {
+  const quote = await Content.findOne({ name: 'quote' });
+  const intro = await Content.findOne({ name: 'intro' });
+  const news = await Content.findOne({ name: 'news' });
 
-    res.render('cms/dashboard', {
-      name: req.user.username,
-      // name: 'admin',
-      quote,
-      intro,
-      news,
-    });
-  }
-);
+  res.render('cms/dashboard', {
+    name: req.user.username,
+    quote,
+    intro,
+    news,
+  });
+});
 
 router.put('/quote/:id', ensureAuthenticated, async (req, res) => {
   try {
