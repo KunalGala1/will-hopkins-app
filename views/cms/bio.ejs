@@ -18,10 +18,9 @@
       <h1 class="secondary-header">Biography</h1>
       <form
         data-method="PUT"
-        data-action="/dashboard/bio/<%= id %>"
+        action="/dashboard/bio/<%= id %>"
         class="dashboard-form crud"
-        name="bio"
-      >
+        name="bio">
         <div class="item">
           <div class="subitem">
             <label for="image">Image</label>
@@ -36,8 +35,7 @@
               name="quote"
               id=""
               cols="30"
-              rows="10"
-            >
+              rows="10">
 <%= quote %></textarea
             >
             <script>
@@ -71,8 +69,7 @@
               id=""
               cols="30"
               rows="10"
-              class="lg"
-            >
+              class="lg">
           <%= bio %>
           </textarea
             >

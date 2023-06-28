@@ -165,6 +165,9 @@ blockquote {
   height: 200px;
 }
 
+.dashboard-form input[type=hidden] + .item {
+  margin-top: 17.5px;
+}
 .dashboard-form .item + .item {
   margin-top: 17.5px;
 }

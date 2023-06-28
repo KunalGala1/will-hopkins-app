@@ -59,6 +59,9 @@
 }
 
 .dashboard-form {
+  input[type='hidden'] + .item {
+    margin-top: 17.5px;
+  }
   .item {
     & + .item {
       margin-top: 17.5px;

@@ -1,5 +1,3 @@
-console.log('hooked up');
-
 const fileInputs = document.querySelectorAll('input[type=file]');
 
 fileInputs.forEach(fileInput => {

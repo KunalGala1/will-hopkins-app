@@ -2,12 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Will Hopkins | Dashboard | Edit Event</title>
     <%- include('../../partials/head') %>
   </head>
@@ -31,7 +27,7 @@
 
       <form
         data-method="put"
-        data-action="/dashboard/events/<%= event._id %>"
+        action="/dashboard/events/<%= event._id %>"
         data-id="<%= event._id %>"
         class="dashboard-form crud"
         enctype="multipart/form-data">
@@ -43,9 +39,7 @@
               name="title"
               required
               value="<%= JSON.parse(event.json).title %>" />
-            <input
-              type="hidden"
-              name="slug" />
+            <input type="hidden" name="slug" />
           </div>
         </div>
         <div class="item">
@@ -108,10 +102,7 @@
         <div class="item">
           <div class="subitem">
             <label for="image">Image</label>
-            <input
-              type="file"
-              name="file"
-              value="" />
+            <input type="file" name="file" value="" />
             <div class="preview">
               <img
                 src="/uploads/<%= JSON.parse(event.json).file.filename %>"
@@ -142,25 +133,15 @@
         </div>
         <div class="item flex">
           <div class="subitem">
-            <button
-              type="submit"
-              class="success-btn">
-              Save
-            </button>
+            <button type="submit" class="success-btn">Save</button>
           </div>
           <div class="subitem">
-            <button
-              type="reset"
-              class="danger-btn">
-              Cancel
-            </button>
+            <button type="reset" class="danger-btn">Cancel</button>
           </div>
         </div>
       </form>
     </main>
   </body>
 
-  <script
-    src="/js/previewEventImage.js"
-    defer></script>
+  <script src="/js/previewEventImage.js" defer></script>
 </html>

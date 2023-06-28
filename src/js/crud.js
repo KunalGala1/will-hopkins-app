@@ -23,7 +23,7 @@ forms.forEach(form => {
     }
 
     const method = form.dataset.method;
-    const action = form.dataset.action;
+    const action = form.action;
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries());
 
