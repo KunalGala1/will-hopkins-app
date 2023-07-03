@@ -1,7 +1,18 @@
-@mixin transition(
-  $property: all,
-  $duration: 0.3s,
-  $timing-function: ease-in-out
-) {
+@mixin transition($property: all, $duration: 0.3s, $timing-function: ease-in-out) {
   transition: $property $duration $timing-function;
+}
+
+$bs: (
+  sm: 0px 2px 2px -2px rgb(0, 0, 0, 0.2),
+  md: 0px 8px 24px 0px rgba(149, 157, 165, 0.2),
+  lg: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px,
+  dark: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px,
+);
+
+@mixin boxshadow($key: sm) {
+  @if map-has-key($bs, $key) {
+    box-shadow: map-get($bs, $key);
+  } @else {
+    box-shadow: $key;
+  }
 }

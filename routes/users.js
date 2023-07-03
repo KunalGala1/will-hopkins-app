@@ -7,7 +7,7 @@ const { forwardAuthenticated } = require('../config/auth');
 const { ensureAuthenticated } = require('../config/auth');
 
 router.get('/login', forwardAuthenticated, async (req, res) => {
-  res.render('cms/login');
+  res.render('client/users/login');
 });
 
 router.post('/login', async (req, res, next) => {

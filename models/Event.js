@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const EventSchema = new mongoose.Schema({
-  json: {
+  name: {
+    type: String,
+    default: 'event',
+  },
+  body: {
     type: String,
   },
   date: {

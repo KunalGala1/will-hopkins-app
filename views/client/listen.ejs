@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will Hopkins | Listen</title>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <script>
+      document
+        .querySelector('nav ul li:nth-child(4) a')
+        .classList.add('active');
+    </script>
+    <main id="listen">
+      <div class="card">
+        <h3 class="title">Title of media</h3>
+        <p class="description">Description of media</p>
+        <iframe src="" frameborder="0"></iframe>
+      </div>
+      <div class="card">
+        <h3 class="title">Card 2</h3>
+        <p class="description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+          molestias.
+        </p>
+        <iframe src="" frameborder="0"></iframe>
+      </div>
+      <div class="card">
+        <h3 class="title">Card 3</h3>
+        <p class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro
+          ipsum vitae, temporibus, tempore quia, maiores minus sed eos culpa
+          fuga id amet explicabo expedita alias autem tenetur officiis eius
+          voluptatibus fugiat eaque dolor iste eum numquam. Alias, quae est.
+        </p>
+        <iframe src="" frameborder="0"></iframe>
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

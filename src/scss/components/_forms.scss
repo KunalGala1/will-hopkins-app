@@ -95,7 +95,7 @@
         @include t.sans;
         font-size: 18px;
         resize: none;
-        @include l.radius(sm);
+        @include l.radius(md);
         &:focus {
           outline: none;
           border-color: rgba(50, 50, 50, 0.15);
@@ -113,6 +113,7 @@
       img {
         max-width: 400px;
         margin: 15px 0;
+        @include l.radius(md);
       }
     }
   }

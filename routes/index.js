@@ -7,22 +7,22 @@ router.get('/', async (req, res) => {
   const quote = await Content.findOne({ name: 'quote' });
   const intro = await Content.findOne({ name: 'intro' });
   const news = await Content.findOne({ name: 'news' });
-  res.render('index', { quote, intro, news });
+  res.render('client/index', { quote, intro, news });
 });
 
 router.get('/events', async (req, res) => {
   const events = await Event.find();
-  res.render('events', { events });
+  res.render('client/events', { events });
 });
 
 router.get('/event/:slug', async (req, res) => {
   const events = await Event.find();
   const event = events.find(
-    event => JSON.parse(event.json).slug === req.params.slug
+    event => JSON.parse(event.body).slug === req.params.slug
   );
   if (event == undefined) res.redirect('/events');
   else {
-    res.render('event', { event });
+    res.render('client/event', { event });
   }
 });
 
@@ -30,22 +30,25 @@ router.get('/event/:slug', async (req, res) => {
 router.get('/bio', async (req, res) => {
   const data = await Content.findOne({ name: 'bio' });
   if (!data)
-    res.render('bio', { quote: 'db conn failed', bio: 'db conn failed' });
+    res.render('client/bio', {
+      quote: 'db conn failed',
+      bio: 'db conn failed',
+    });
   else {
-    const json = JSON.parse(data.json);
-    res.render('bio', {
-      quote: json.quote,
-      bio: json.bio,
+    const body = JSON.parse(data.body);
+    res.render('client/bio', {
+      quote: body.quote,
+      bio: body.bio,
     });
   }
 });
 
 router.get('/contact', async (req, res) => {
-  res.render('contact');
+  res.render('client/contact');
 });
 
 router.get('/listen', async (req, res) => {
-  res.render('listen');
+  res.render('client/listen');
 });
 
 module.exports = router;

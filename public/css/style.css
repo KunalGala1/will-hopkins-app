@@ -196,7 +196,7 @@ blockquote {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   resize: none;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .dashboard-form .item .subitem input:focus,
 .dashboard-form .item .subitem textarea:focus {
@@ -212,6 +212,7 @@ blockquote {
 .dashboard-form .item .subitem img {
   max-width: 400px;
   margin: 15px 0;
+  border-radius: 10px;
 }
 
 .primary-table {
@@ -244,6 +245,35 @@ blockquote {
   align-items: center;
   background-color: transparent;
   width: 100%;
+}
+
+.flash-message {
+  position: fixed;
+  top: 10px;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 9999;
+  width: max-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
+  color: var(--247);
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+.flash-message.active {
+  opacity: 1;
+}
+.flash-message.success {
+  background-color: var(--success);
+}
+.flash-message.danger {
+  background-color: var(--danger);
 }
 
 nav {
@@ -473,7 +503,7 @@ aside .bottom {
   background-color: var(--accent-color);
   padding: 30px;
   margin: 30px 0;
-  box-shadow: rgba(64, 64, 64, 0.287) 0px 5px 15px;
+  box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.2);
 }
 #news .banner .container {
   max-width: 700px;
@@ -481,7 +511,6 @@ aside .bottom {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  text-align: center;
   margin: 0 auto;
 }
 #news .banner .container p {

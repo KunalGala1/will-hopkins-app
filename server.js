@@ -62,7 +62,8 @@ app.set('view engine', 'ejs');
 // routes
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/users'));
-app.use('/dashboard', require('./routes/cms'));
+app.use('/dashboard', require('./routes/dashboard'));
+app.use('/dashboard/events', require('./routes/events'));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}...`);

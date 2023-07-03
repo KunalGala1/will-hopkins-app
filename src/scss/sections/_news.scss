@@ -17,11 +17,10 @@
     background-color: var(--accent-color);
     padding: 30px;
     margin: 30px 0;
-    @include t.boxshadow;
+    @include a.boxshadow;
 
     .container {
       @include l.max-width(md);
-      text-align: center;
       margin: 0 auto;
       p {
         font-size: 22px;

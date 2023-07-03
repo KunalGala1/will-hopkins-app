@@ -4,7 +4,7 @@ const ContentSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  json: {
+  body: {
     type: String,
   },
   date: {

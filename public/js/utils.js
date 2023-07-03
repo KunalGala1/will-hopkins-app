@@ -28,3 +28,16 @@ export const convertToSlug = inputString => {
     .replace(/-+/g, '-') // Replace multiple hyphens with a single hyphen
     .replace(/^-|-$/g, ''); // Remove leading and trailing hyphens
 };
+
+export const displayFlashMessage = (message, type) => {
+  const flashMessage = document.createElement('div');
+  flashMessage.classList.add('flash-message', type, 'active');
+  flashMessage.textContent = message;
+  document.body.appendChild(flashMessage);
+  setTimeout(() => {
+    flashMessage.classList.remove('active');
+    setTimeout(() => {
+      flashMessage.remove();
+    }, 250);
+  }, 1000);
+};
