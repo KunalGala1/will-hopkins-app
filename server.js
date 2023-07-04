@@ -65,6 +65,6 @@ app.use('/', require('./routes/users'));
 app.use('/dashboard', require('./routes/dashboard'));
 app.use('/dashboard/events', require('./routes/events'));
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is listening on port ${PORT}...`);
 });
