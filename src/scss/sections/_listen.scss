@@ -2,7 +2,7 @@
 @use '../layout' as l;
 @use '../theme/' as t;
 
-#listen {
+#listen[data-cli] {
   padding-top: 23px;
   margin: 0 auto;
   @include l.max(xxl, -1px) {

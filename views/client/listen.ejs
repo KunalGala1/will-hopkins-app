@@ -1,3 +1,5 @@
+<% console.log(videos); %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,34 +12,22 @@
   <body>
     <%- include('../partials/nav') %>
     <script>
-      document
-        .querySelector('nav ul li:nth-child(4) a')
-        .classList.add('active');
+      document.querySelector('nav ul li:nth-child(4) a').classList.add('active');
     </script>
-    <main id="listen">
-      <div class="card">
-        <h3 class="title">Title of media</h3>
-        <p class="description">Description of media</p>
-        <iframe src="" frameborder="0"></iframe>
+    <main id="listen" data-cli>
+      <% for( let i = 0; i < videos.length; i++ ) { %> <% const body = JSON.parse(videos[i].body) %>
+      <div class="card" data-video-id="<%= videos[i]._id %>">
+        <h3 class="title"><%= body.title %></h3>
+        <p class="description"><%- body.shortDescription %></p>
+        <iframe src="#" allowfullscreen></iframe>
+        <script type="module">
+          import { getYouTubeVideoId } from '../js/utils.js';
+          const videoId = getYouTubeVideoId('<%= body.url %>');
+          document.querySelector(`[data-video-id="<%= videos[i]._id %>"] iframe`).src = `https://www.youtube.com/embed/${videoId}`;
+        </script>
       </div>
-      <div class="card">
-        <h3 class="title">Card 2</h3>
-        <p class="description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
-          molestias.
-        </p>
-        <iframe src="" frameborder="0"></iframe>
-      </div>
-      <div class="card">
-        <h3 class="title">Card 3</h3>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat porro
-          ipsum vitae, temporibus, tempore quia, maiores minus sed eos culpa
-          fuga id amet explicabo expedita alias autem tenetur officiis eius
-          voluptatibus fugiat eaque dolor iste eum numquam. Alias, quae est.
-        </p>
-        <iframe src="" frameborder="0"></iframe>
-      </div>
+
+      <% } %>
     </main>
     <%- include('../partials/footer') %>
   </body>

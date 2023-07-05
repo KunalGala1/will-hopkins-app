@@ -1,0 +1,21 @@
+@use '../../abstracts/' as a;
+@use '../../layout' as l;
+@use '../../theme/' as t;
+
+#events[data-dashboard] {
+  .btn-primary {
+    margin: 0 0 30px;
+  }
+
+  .no-padding {
+    padding: 0;
+  }
+
+  .box {
+    max-width: 75px;
+  }
+  img {
+    object-fit: cover;
+    object-position: center;
+  }
+}

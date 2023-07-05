@@ -2,7 +2,7 @@
 @use '../layout' as l;
 @use '../theme/' as t;
 
-.cms {
+.dashboard {
   background-color: var(--off-white);
   main {
     margin-left: map-get(l.$width, aside);

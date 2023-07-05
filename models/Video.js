@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const EventSchema = new mongoose.Schema({
+const VideoSchema = new mongoose.Schema({
   body: {
     type: String,
   },
@@ -10,4 +10,4 @@ const EventSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Event', EventSchema, 'events');
+module.exports = mongoose.model('Video', VideoSchema, 'videos');

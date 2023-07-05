@@ -41,3 +41,17 @@ export const displayFlashMessage = (message, type) => {
     }, 250);
   }, 1000);
 };
+
+export function getYouTubeVideoId(url) {
+  // Extract the video ID from the URL using a regular expression
+  const regex = /[?&]v=([^&#]+)/;
+  const match = url.match(regex);
+
+  if (match && match[1]) {
+    // Return the extracted video ID
+    return match[1];
+  } else {
+    // Return null if the URL is invalid or the video ID is not found
+    return null;
+  }
+}

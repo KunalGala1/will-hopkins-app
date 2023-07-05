@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Content = require('../models/Content');
 const Event = require('../models/Event');
+const Video = require('../models/Video');
 
 router.get('/', async (req, res) => {
   const quote = await Content.findOne({ name: 'quote' });
@@ -17,9 +18,7 @@ router.get('/events', async (req, res) => {
 
 router.get('/event/:slug', async (req, res) => {
   const events = await Event.find();
-  const event = events.find(
-    event => JSON.parse(event.body).slug === req.params.slug
-  );
+  const event = events.find(event => JSON.parse(event.body).slug === req.params.slug);
   if (event == undefined) res.redirect('/events');
   else {
     res.render('client/event', { event });
@@ -48,7 +47,9 @@ router.get('/contact', async (req, res) => {
 });
 
 router.get('/listen', async (req, res) => {
-  res.render('client/listen');
+  const videos = await Video.find({});
+
+  res.render('client/listen', { videos });
 });
 
 module.exports = router;
