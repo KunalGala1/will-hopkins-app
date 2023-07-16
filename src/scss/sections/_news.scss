@@ -9,7 +9,7 @@
     @include l.max-width(md);
     margin: 0 auto;
     @include t.sans;
-    color: var(--grey);
+    color: var(--100);
     font-size: 32px;
   }
 
@@ -24,7 +24,7 @@
       margin: 0 auto;
       p {
         font-size: 22px;
-        color: var(--light-grey);
+        color: var(--200);
       }
       a {
         text-decoration: underline;

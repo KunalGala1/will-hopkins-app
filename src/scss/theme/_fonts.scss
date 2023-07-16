@@ -8,6 +8,10 @@
   font-family: 'Georgia', serif;
 }
 
+@mixin util {
+  font-family: 'Roboto', sans-serif;
+}
+
 blockquote {
   font-style: italic;
   @include serif;

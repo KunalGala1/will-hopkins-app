@@ -3,16 +3,16 @@
 @use '../theme/' as t;
 
 .primary-table {
-  color: var(--dark-grey);
+  color: var(--40);
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--200);
   border-radius: 4px;
   overflow: hidden;
   td,
   th {
-    border: 1px solid var(--light-grey);
+    border: 1px solid var(--200);
     text-align: left;
     padding: 15px;
     white-space: nowrap;

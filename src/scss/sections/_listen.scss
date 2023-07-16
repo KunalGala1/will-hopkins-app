@@ -26,14 +26,14 @@
     .title {
       font-size: 20px;
       font-weight: 400;
-      color: var(--light-grey);
+      color: var(--200);
       margin-bottom: 10px;
     }
 
     .description {
       font-size: 16px;
       font-weight: 300;
-      color: var(--grey);
+      color: var(--100);
       margin-left: 5px;
       line-height: 2;
     }
@@ -42,7 +42,7 @@
       width: 100%;
       aspect-ratio: 16/9;
       margin-top: 20px;
-      background-color: var(--dark-grey);
+      background-color: var(--40);
     }
   }
 

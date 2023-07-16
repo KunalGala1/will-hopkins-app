@@ -1,35 +1,48 @@
 :root {
-  // whites
-  --off-white: rgb(247, 247, 247);
+  /* Theme Colors */
 
-  // greys
-  --light-grey: rgb(210, 210, 210);
-  --mid-grey: rgb(140, 140, 140);
-  --grey: rgb(100, 100, 100);
-  --dark-grey: rgb(35, 35, 35);
+  --main: rgb(23, 10, 10);
+  --main-accent: rgb(136, 57, 59);
+
+  // ...light
+  --main-light: rgb(153, 80, 82);
+  --secondary-color: rgb(15, 0, 0);
+
+  // ...dark
+  --secondary-color-dark: rgba(10, 0, 0);
 
   // accent
   --accent-color: rgba(227, 110, 110, 55%);
   --accent-color-fade: rgb(227, 110, 110, 10%);
 
-  // theme
-  --main: rgb(23, 10, 10);
-  --main-accent: rgb(136, 57, 59);
-  --main-light: rgb(153, 80, 82);
-  --secondary-color: rgb(15, 0, 0);
-  --secondary-color-dark: rgba(10, 0, 0);
+  /* Components */
 
-  // compontents
-  --btn-color: rgb(92, 40, 40);
-  --btn-color-hover: rgb(139, 77, 77);
+  --btn-primary: rgb(92, 40, 40);
+  --btn-primary-hover: rgb(139, 77, 77);
 
   --hero-bg: rgb(64, 7, 7);
 
-  // util
-  --success: green;
-  --success-hover: rgb(0, 157, 0);
-  --danger: rgb(121, 66, 35);
-  --danger-hover: rgb(121, 76, 36);
+  /* Utility */
+  --success: #198754;
+  --success-hover: #198754;
+  --danger: #b00020;
+  --danger-hover: #b00020;
 
   --form: rgb(48, 66, 85);
+
+  /* Monochrome */
+  --247: rgb(247, 247, 247);
+  --235: rgb(235, 235, 235);
+  --220: rgb(220, 220, 220);
+  --200: rgb(200, 200, 200);
+  --180: rgb(180, 180, 180);
+  --160: rgb(160, 160, 160);
+  --140: rgb(140, 140, 140);
+  --120: rgb(120, 120, 120);
+  --100: rgb(100, 100, 100);
+  --80: rgb(80, 80, 80);
+  --60: rgb(60, 60, 60);
+  --40: rgb(40, 40, 40);
+  --20: rgb(20, 20, 20);
+  --8: rgb(8, 8, 8);
 }

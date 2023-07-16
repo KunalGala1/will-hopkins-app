@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Will Hopkins | Repertoire</title>
+		<%- include('../partials/head') %>
+	</head>
+
+	<body>
+		<%- include('../partials/nav') %>
+		<script>
+			document
+				.querySelector( 'nav ul li:nth-child(5) a' )
+				.classList.add( 'active' );
+		</script>
+		<main id="works" data-cli>
+			<ul class="container">
+				<% for( let i = 0; i < works.length; i++ ) { %>
+
+				<li class="card">
+					<div class="content">
+						<h3 class="title">
+							<%= JSON.parse(works[i].body).title %>
+						</h3>
+						<p class="composer">
+							<%= JSON.parse(works[i].body).composer %>
+						</p>
+						<p class="year">
+							<%= JSON.parse(works[i].body).year %>
+						</p>
+						<p class="tag">
+							<%= JSON.parse(works[i].body).tag %>
+						</p>
+						<p class="description">
+							<%- JSON.parse(works[i].body).description %>
+						</p>
+
+					</div>
+				</li>
+				<% } %>
+				</div>
+		</main>
+		<%- include('../partials/footer') %>
+	</body>
+
+</html>

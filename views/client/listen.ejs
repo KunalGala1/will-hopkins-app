@@ -2,33 +2,40 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Listen</title>
-    <%- include('../partials/head') %>
-  </head>
-  <body>
-    <%- include('../partials/nav') %>
-    <script>
-      document.querySelector('nav ul li:nth-child(4) a').classList.add('active');
-    </script>
-    <main id="listen" data-cli>
-      <% for( let i = 0; i < videos.length; i++ ) { %> <% const body = JSON.parse(videos[i].body) %>
-      <div class="card" data-video-id="<%= videos[i]._id %>">
-        <h3 class="title"><%= body.title %></h3>
-        <p class="description"><%- body.shortDescription %></p>
-        <iframe src="#" allowfullscreen></iframe>
-        <script type="module">
-          import { getYouTubeVideoId } from '../js/utils.js';
-          const videoId = getYouTubeVideoId('<%= body.url %>');
-          document.querySelector(`[data-video-id="<%= videos[i]._id %>"] iframe`).src = `https://www.youtube.com/embed/${videoId}`;
-        </script>
-      </div>
 
-      <% } %>
-    </main>
-    <%- include('../partials/footer') %>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Will Hopkins | Listen</title>
+		<%- include('../partials/head') %>
+	</head>
+
+	<body>
+		<%- include('../partials/nav') %>
+		<script>
+			document.querySelector( 'nav ul li:nth-child(4) a' )
+				.classList.add( 'active' );
+		</script>
+		<main id="listen" data-cli>
+			<% for( let i = 0; i < videos.length; i++ ) { %> <% const body = JSON.parse(videos[i].body) %>
+			<div class="card" data-video-id="<%= videos[i]._id %>">
+				<h3 class="title"><%- body.title %></h3>
+				<p class="description"><%- body.shortDescription %></p>
+				<iframe src="#" allowfullscreen></iframe>
+				<script type="module">
+					import {
+						getYouTubeVideoId
+					} from '../js/utils.js';
+					const videoId = getYouTubeVideoId( '<%= body.url %>' );
+					document.querySelector( `[data-video-id="<%= videos[i]._id %>"] iframe` )
+						.src = `https://www.youtube.com/embed/${videoId}`;
+				</script>
+			</div>
+
+			<% } %>
+		</main>
+		<%- include('../partials/footer') %>
+	</body>
+
 </html>

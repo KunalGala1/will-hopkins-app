@@ -3,6 +3,7 @@ const router = express.Router();
 const Content = require('../models/Content');
 const Event = require('../models/Event');
 const Video = require('../models/Video');
+const Work = require('../models/Work');
 
 router.get('/', async (req, res) => {
   const quote = await Content.findOne({ name: 'quote' });
@@ -43,13 +44,18 @@ router.get('/bio', async (req, res) => {
 });
 
 router.get('/contact', async (req, res) => {
-  res.render('client/contact');
+  res.render('client/contact', { msg: '' });
 });
 
 router.get('/listen', async (req, res) => {
   const videos = await Video.find({});
 
   res.render('client/listen', { videos });
+});
+
+router.get('/repertoire', async (req, res) => {
+  const works = await Work.find({});
+  res.render('client/works', { works });
 });
 
 module.exports = router;

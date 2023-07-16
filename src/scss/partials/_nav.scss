@@ -21,16 +21,16 @@ nav {
     display: flex;
     justify-content: space-around;
 
-    max-width: 330px;
+    max-width: 420px;
     margin: 0 auto;
   }
 
   a {
     font-weight: 300;
-    color: var(--light-grey);
+    color: var(--200);
     &:hover,
     &.active {
-      color: var(--off-white);
+      color: var(--247);
       @include a.transition;
 
       // underline

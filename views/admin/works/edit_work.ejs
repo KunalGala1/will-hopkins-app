@@ -1,0 +1,45 @@
+<% 
+const body = JSON.parse( work.body );
+const { title, composer, year, tag, description } = body;
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Will Hopkins | Dashboard | Edit Work</title>
+		<%- include('../../partials/head') %>
+	</head>
+
+	<body class="dashboard">
+		<%- include('../../partials/aside') %>
+		<script>
+			document.querySelector( 'aside .middle ul li:nth-child(4) a' )
+				.classList.add( 'active' );
+		</script>
+		<main>
+			<h1 class="secondary-header">Edit Work</h1>
+
+			<!-- Edit Work Form -->
+			<%- include('../../partials/form', {
+			metadata: {
+				method: 'put',
+				action: '/dashboard/works/' + work._id,
+				enctype: 'multipart/form-data',
+				name: 'work'
+			},
+			fields: [
+				{ name: 'title', required: true, value: title },
+				{ name: 'composer', value: composer},
+				{name: 'year', value: year},
+        {tag: 'select', name: 'tag', options: ['solo', 'chamber', 'ensemble', 'orchestral', 'electronic', 'vocal', 'choral', 'opera', 'dance', 'theatre', 'film', 'installation', 'other'], value: tag},
+        {tag: 'textarea', name: 'description', value: description},
+			]
+		}) %>
+		</main>
+	</body>
+
+</html>

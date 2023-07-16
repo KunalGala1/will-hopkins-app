@@ -21,7 +21,7 @@
       @include t.serif;
       display: block;
       font-style: italic;
-      color: var(--light-grey);
+      color: var(--200);
     }
     margin-bottom: 60px;
 
@@ -29,7 +29,7 @@
   }
   .content {
     @include l.max-width(md);
-    color: var(--light-grey);
+    color: var(--200);
     font-size: 18px;
     p + p {
       margin-top: 30px;

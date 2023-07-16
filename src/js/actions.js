@@ -8,6 +8,14 @@ export const responseAction = (name, method, data) => {
         document.querySelector(`[data-event-id="${data.deletedEvent._id}"]`).remove();
       },
     },
+    work: {
+      post: () => {
+        window.location.replace(`/dashboard/works/${data.newWork._id}/edit`);
+      },
+      delete: () => {
+        document.querySelector(`[data-work-id="${data.deletedWork._id}"]`).remove();
+      },
+    },
   };
 
   if (actions[name] && actions[name][method]) {

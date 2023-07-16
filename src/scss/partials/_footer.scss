@@ -11,14 +11,14 @@ footer {
   ul {
     display: flex;
     justify-content: space-around;
-    color: var(--grey);
+    color: var(--100);
     a {
       font-size: 30px;
 
       cursor: pointer;
 
       &:hover {
-        color: var(--light-grey);
+        color: var(--200);
         @include a.transition($duration: 0.1s);
       }
     }
@@ -28,7 +28,7 @@ footer {
   }
 
   .copyright {
-    color: var(--grey);
+    color: var(--100);
     display: block;
     text-align: center;
     @include t.sans;

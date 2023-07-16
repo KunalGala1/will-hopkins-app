@@ -3,7 +3,7 @@
 @use '../theme/' as t;
 
 .dashboard {
-  background-color: var(--off-white);
+  background-color: var(--247);
   main {
     margin-left: map-get(l.$width, aside);
     @include t.sans;

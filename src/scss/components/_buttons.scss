@@ -2,18 +2,21 @@
 @use '../layout' as l;
 @use '../theme/' as t;
 
-.btn-primary {
-  background-color: var(--btn-color);
+.btn {
   @include t.sans;
-  padding: 5px 15px;
   @include l.radius(sm);
+  @include a.transition($duration: 0.1s);
+  padding: 5px 15px;
   margin: 0 auto;
   display: block;
   width: max-content;
-  color: var(--light-grey);
-  @include a.transition($duration: 0.1s);
+}
+
+.btn-primary {
+  background-color: var(--btn-primary);
+  color: var(--200);
   &:hover {
-    background-color: var(--btn-color-hover);
+    background-color: var(--btn-primary-hover);
     outline: solid 1px white;
     color: white;
   }
@@ -21,14 +24,7 @@
 
 .success-btn {
   background-color: var(--success);
-  @include t.sans;
-  padding: 5px 15px;
-  @include l.radius(sm);
-  margin: 0 auto;
-  display: block;
-  width: max-content;
-  color: var(--light-grey);
-  @include a.transition($duration: 0.1s);
+  color: var(--200);
   &:hover {
     background-color: var(--success-hover);
     outline: solid 1px white;
@@ -38,14 +34,12 @@
 
 .danger-btn {
   background-color: transparent;
-  @include t.sans;
-  padding: 5px 15px;
-  margin: 0 auto;
-  display: block;
-  width: max-content;
-  color: var(--grey);
-  @include a.transition($duration: 0.1s);
+  color: var(--100);
   &:hover {
     color: black;
   }
+}
+
+.add-new-btn {
+  margin: 0 0 30px;
 }

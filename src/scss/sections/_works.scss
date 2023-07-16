@@ -1,0 +1,13 @@
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+#works[data-cli] {
+  .container {
+    @include l.padding(lg);
+  }
+
+  .card + .card {
+    margin-top: 30px;
+  }
+}

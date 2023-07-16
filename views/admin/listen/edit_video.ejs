@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Dashboard | Edit Video</title>
-    <%- include('../../partials/head') %>
-  </head>
-  <body class="dashboard">
-    <%- include('../../partials/aside') %>
-    <script>
-      document.querySelector('aside .middle ul li:nth-child(3) a').classList.add('active');
-    </script>
-    <main>
-      <h1 class="secondary-header">Edit Video</h1>
 
-      <!-- Edit Video Form -->
-      <% const body = JSON.parse(video.body) %> <%- include('../../partials/form', { metadata: { method: 'put', action: '/dashboard/listen/' + video._id, name: 'video' }, fields: [ { name: 'title', required: true, value: body.title }, { tag: 'textarea', name: 'shortDescription', label: 'short description', value: body.shortDescription }, { type: 'url', label: 'URL', value: body.url }, ] }) %>
-    </main>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Will Hopkins | Dashboard | Edit Video</title>
+		<%- include('../../partials/head') %>
+	</head>
 
-    <script src="/js/previewVideo.js" defer></script>
-  </body>
+	<body class="dashboard">
+		<%- include('../../partials/aside') %>
+		<script>
+			document.querySelector( 'aside .middle ul li:nth-child(3) a' )
+				.classList.add( 'active' );
+		</script>
+		<main>
+			<h1 class="secondary-header">Edit Video</h1>
+
+			<!-- Edit Video Form -->
+			<% const body = JSON.parse(video.body) %>
+			<%- include('../../partials/form', {
+      metadata: {
+        method: 'put',
+        action: '/dashboard/listen/' + video._id,
+        name: 'video'
+      },
+      fields: [
+        { tag: 'textarea', name: 'title', required: true, value: body.title },
+        { tag: 'textarea', name: 'shortDescription', label: 'short description', value: body.shortDescription },
+        { type: 'url', label: 'URL', value: body.url },
+      ]
+    }) %>
+		</main>
+
+		<script src="/js/previewVideo.js" defer></script>
+	</body>
+
 </html>

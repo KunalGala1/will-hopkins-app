@@ -30,7 +30,7 @@
       label {
         display: block;
         margin-bottom: 5px;
-        color: var(--light-gray);
+        color: var(--200);
         @include t.sans;
         font-size: 12px;
       }
@@ -41,7 +41,7 @@
         padding: 10px;
         border: 1px solid rgba(210, 210, 210, 0.15);
         background-color: var(--secondary-color);
-        color: var(--light-gray);
+        color: var(--200);
         @include t.sans;
         font-size: 18px;
         resize: none;
@@ -59,9 +59,12 @@
 }
 
 .dashboard-form {
+  @include l.max-width(md);
+
   input[type='hidden'] + .item {
     margin-top: 17.5px;
   }
+
   .item {
     & + .item {
       margin-top: 17.5px;
@@ -80,22 +83,34 @@
         display: block;
         margin-bottom: 5px;
         color: var(--main);
-        @include t.sans;
+        @include t.util;
         font-size: 12px;
+      }
+
+      label,
+      select {
+        text-transform: capitalize;
+      }
+      select option {
         text-transform: capitalize;
       }
 
       input,
-      textarea {
+      textarea,
+      select {
         width: 100%;
         padding: 10px;
-        border: none;
+        border: 1px solid rgba(210, 210, 210, 0.15);
+
         background-color: var(--form);
-        color: var(--off-white);
-        @include t.sans;
+        color: var(--247);
+
+        @include t.util;
+        @include l.radius(sm);
+
         font-size: 18px;
         resize: none;
-        @include l.radius(md);
+
         &:focus {
           outline: none;
           border-color: rgba(50, 50, 50, 0.15);

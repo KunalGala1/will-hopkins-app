@@ -5,13 +5,13 @@
 .main-header {
   padding-top: 60px;
   padding-bottom: 30px;
-  color: var(--grey);
+  color: var(--100);
   text-align: center;
   @include t.sans;
 }
 
 .secondary-header {
-  color: var(--mid-grey);
+  color: var(--140);
   text-align: center;
   @include t.serif;
   &:after {
@@ -19,20 +19,20 @@
     display: block;
     width: 100%;
     height: 1px;
-    background-color: var(--light-grey);
+    background-color: var(--200);
     margin: 30px auto;
   }
 }
 
 .event-header {
   @include t.serif;
-  color: var(--off-white);
+  color: var(--247);
   font-size: 80px;
   text-align: center;
   margin: 100px 0;
 }
 
-.event-link {
+.dashboard-table-link {
   color: var(--form);
   text-decoration: underline;
   &:hover {
