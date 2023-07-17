@@ -29,7 +29,8 @@ const { title, composer, year, tag, description } = body;
 				method: 'put',
 				action: '/dashboard/works/' + work._id,
 				enctype: 'multipart/form-data',
-				name: 'work'
+				name: 'work',
+				id: work._id
 			},
 			fields: [
 				{ name: 'title', required: true, value: title },
