@@ -5,6 +5,9 @@ const passport = require('passport');
 
 /* Import Models */
 const Content = require('../models/Content');
+const Event = require('../models/Event');
+const Work = require('../models/Work');
+const Video = require('../models/Video');
 
 /* Import Auth Configs */
 const { forwardAuthenticated } = require('../config/auth');
@@ -74,5 +77,33 @@ router.put('/bio/:id', ensureAuthenticated, async (req, res) => {
     res.status(500).json({ success: false, error: 'Something went wrong' });
   }
 });
+
+// ====================================================================================================
+
+const models = [
+  {
+    name: 'events',
+  },
+  {
+    name: 'listen',
+    model: 'videos',
+  },
+  {
+    name: 'works',
+  },
+];
+
+modals.forEach(model => {
+  router.get('/' + model.name, ensureAuthenticated, async (req, res) => {
+    const collection = model.model ? model.model : model.name;
+    const modelName = Singular_and_Uppercase(collection);
+    const data = await eval(modelName).find({});
+    res.render('admin/' + model.name, { collection: data });
+  });
+});
+
+const Singular_and_Uppercase = string => {
+  return string.slice(0, -1).charAt(0).toUpperCase() + string.slice(0, -1).slice(1);
+};
 
 module.exports = router;
