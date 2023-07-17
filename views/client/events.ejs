@@ -1,68 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Events</title>
-    <%- include('../partials/head') %>
-  </head>
-  <body>
-    <%- include('../partials/nav') %>
-    <script>
-      document
-        .querySelector('nav ul li:nth-child(2) a')
-        .classList.add('active');
-    </script>
-    <main id="events" data-cli>
-      <div class="container">
-        <% for( let i = 0; i < events.length; i++ ) { %>
 
-        <div class="card">
-          <a href="/event/<%= JSON.parse(events[i].body).slug %>">
-            <div class="image-container">
-              <img
-                src="/uploads/<%= JSON.parse(events[i].body).file.filename %>"
-                alt="" />
-            </div>
-          </a>
-          <div class="content">
-            <h3 class="title">
-              <a href="/event/<%= JSON.parse(events[i].body).slug %>">
-                <%= JSON.parse(events[i].body).title %>
-              </a>
-            </h3>
-            <span class="date">
-              <%= JSON.parse(events[i].body).date.toLocaleString('en-US') %>
-            </span>
-            <span class="time"><%= JSON.parse(events[i].body).time %></span>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Will Hopkins | Events</title>
+		<%- include('../partials/head') %>
+	</head>
 
-            <span class="location">
-              <%= JSON.parse(events[i].body).location %>
-            </span>
-            <p><%- JSON.parse(events[i].body).shortDescription %></p>
-          </div>
-        </div>
-        <% } %>
-      </div>
-    </main>
-    <%- include('../partials/footer') %>
-  </body>
+	<body>
+		<%- include('../partials/nav') %>
+		<script>
+			document
+				.querySelector( 'nav ul li:nth-child(2) a' )
+				.classList.add( 'active' );
+		</script>
+		<main id="events" data-cli>
+			<div class="container">
+				<% for( let i = 0; i < events.length; i++ ) { %>
+
+				<%
+          // Variables
+          const slug =  JSON.parse(events[i].body).slug;
+          const image = JSON.parse(events[i].body).file.filename
+          const title = JSON.parse(events[i].body).title;
+          const date = JSON.parse(events[i].body).date;
+          const time = JSON.parse(events[i].body).time;
+          const location = JSON.parse(events[i].body).location;
+          const shortDescription = JSON.parse(events[i].body).shortDescription;
+        %>
+
+				<div class="card">
+					<a href="/event/<%= slug %>">
+						<div class="image-container">
+							<img src="/uploads/<%= image %>" alt="" />
+						</div>
+					</a>
+					<div class="content">
+						<h3 class="title">
+							<a href="/event/<%= slug %>">
+								<%= title %>
+							</a>
+						</h3>
+
+						<% if (date) { %>
+						<span><%= date.toLocaleString('en-US') %></span>
+						<% } %>
+
+						<% if (time) { %>
+						<span><%= convertTime(time) %></span>
+						<% } %>
+
+						<% if (location) { %>
+						<span><%= location %></span>
+						<% } %>
+
+						<% if (shortDescription) { %>
+						<p><%- shortDescription %></p>
+						<% } %>
+
+					</div>
+				</div>
+				<% } %>
+			</div>
+		</main>
+		<%- include('../partials/footer') %>
+	</body>
+
 </html>
 
 <script type="module">
-  import { convertTime } from '../js/utils.js';
-  import { formatDate } from '../js/utils.js';
+	import {
+		convertTime
+	} from '../js/utils.js';
+	import {
+		formatDate
+	} from '../js/utils.js';
 
-  document.querySelectorAll('#events[data-cli] .card').forEach(card => {
-    // Convert time to 12 hour format
-    card.querySelector('span.time').innerText = convertTime(
-      card.querySelector('span.time').innerText
-    );
+	document.querySelectorAll( '#events[data-cli] .card' )
+		.forEach( card => {
+			// Convert time to 12 hour format
+			card.querySelector( 'span.time' )
+				.innerText = convertTime(
+					card.querySelector( 'span.time' )
+					.innerText
+				);
 
-    // Format date
-    card.querySelector('span.date').innerText = formatDate(
-      card.querySelector('span.date').innerText
-    );
-  });
+			// Format date
+			card.querySelector( 'span.date' )
+				.innerText = formatDate(
+					card.querySelector( 'span.date' )
+					.innerText
+				);
+		} );
 </script>

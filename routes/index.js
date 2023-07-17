@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+
+/* Import Models */
 const Content = require('../models/Content');
 const Event = require('../models/Event');
 const Video = require('../models/Video');
 const Work = require('../models/Work');
 
+/* Home */
 router.get('/', async (req, res) => {
   const quote = await Content.findOne({ name: 'quote' });
   const intro = await Content.findOne({ name: 'intro' });
@@ -12,6 +15,7 @@ router.get('/', async (req, res) => {
   res.render('client/index', { quote, intro, news });
 });
 
+/* Events */
 router.get('/events', async (req, res) => {
   const events = await Event.find();
   res.render('client/events', { events });
@@ -43,19 +47,23 @@ router.get('/bio', async (req, res) => {
   }
 });
 
+/* Contact */
 router.get('/contact', async (req, res) => {
   res.render('client/contact', { msg: '' });
 });
 
+/* Listen */
 router.get('/listen', async (req, res) => {
   const videos = await Video.find({});
 
   res.render('client/listen', { videos });
 });
 
+/* Repertoire */
 router.get('/repertoire', async (req, res) => {
   const works = await Work.find({});
-  res.render('client/works', { works });
+  const repertoire = await Content.findOne({ name: 'repertoire' });
+  res.render('client/works', { works, repertoire });
 });
 
 module.exports = router;

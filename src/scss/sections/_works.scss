@@ -5,6 +5,7 @@
 #works[data-cli] {
   .container {
     @include l.padding(lg);
+    @include l.max-width(md);
   }
 
   .card + .card {

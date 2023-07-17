@@ -82,6 +82,7 @@ blockquote {
   margin: 0 0 30px;
 }
 
+/* Headers */
 .main-header {
   padding-top: 60px;
   padding-bottom: 30px;
@@ -104,6 +105,10 @@ blockquote {
   margin: 30px auto;
 }
 
+.third-header {
+  font-family: "Georgia", serif;
+}
+
 .event-header {
   font-family: "Georgia", serif;
   color: var(--247);
@@ -112,6 +117,7 @@ blockquote {
   margin: 100px 0;
 }
 
+/* Links */
 .dashboard-table-link {
   color: var(--form);
   text-decoration: underline;
@@ -124,6 +130,11 @@ blockquote {
 }
 .dashboard-table-link i {
   margin-left: 5px;
+}
+
+/* Text */
+.main-text {
+  font-family: "Georgia", serif;
 }
 
 .primary-form .item:first-child {
@@ -300,6 +311,10 @@ blockquote {
 
 .space {
   padding: 15px;
+}
+
+.margin-top {
+  margin-top: 30px;
 }
 
 nav {
@@ -872,6 +887,11 @@ aside .bottom {
   padding-bottom: 60px;
   padding-left: 60px;
   padding-right: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 #works[data-cli] .card + .card {
   margin-top: 30px;

@@ -2,6 +2,8 @@
 @use '../layout' as l;
 @use '../theme/' as t;
 
+/* Headers */
+
 .main-header {
   padding-top: 60px;
   padding-bottom: 30px;
@@ -24,6 +26,10 @@
   }
 }
 
+.third-header {
+  @include t.serif;
+}
+
 .event-header {
   @include t.serif;
   color: var(--247);
@@ -31,6 +37,8 @@
   text-align: center;
   margin: 100px 0;
 }
+
+/* Links */
 
 .dashboard-table-link {
   color: var(--form);
@@ -44,4 +52,10 @@
   i {
     margin-left: 5px;
   }
+}
+
+/* Text */
+
+.main-text {
+  @include t.serif;
 }

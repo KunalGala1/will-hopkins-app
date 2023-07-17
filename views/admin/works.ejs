@@ -53,6 +53,18 @@
 				</tr>
 				<% } %>
 			</table>
+			<hr class="margin-top">
+			<%- include('../partials/form', {
+				metadata: {
+					method: 'put',
+					action: '/dashboard/repertoire/' + repertoire._id,
+					id: repertoire._id,
+					name: 'repertoire'
+				},
+				fields: [
+					{tag: 'textarea', name: 'repertoire', label: 'Repertoire page heading', value: JSON.parse(repertoire.body).repertoire}
+				]
+			}) %>
 		</main>
 	</body>
 
