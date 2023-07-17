@@ -93,17 +93,26 @@ const models = [
   },
 ];
 
-modals.forEach(model => {
-  router.get('/' + model.name, ensureAuthenticated, async (req, res) => {
-    const collection = model.model ? model.model : model.name;
-    const modelName = Singular_and_Uppercase(collection);
-    const data = await eval(modelName).find({});
-    res.render('admin/' + model.name, { collection: data });
-  });
-});
-
 const Singular_and_Uppercase = string => {
   return string.slice(0, -1).charAt(0).toUpperCase() + string.slice(0, -1).slice(1);
 };
+
+models.forEach(model => {
+  /* Define Variables */
+  const name = model.name;
+  const collection = model.model ? model.model : name;
+  const modelName = Singular_and_Uppercase(collection);
+
+  /* Get page */
+  router.get('/' + model.name, ensureAuthenticated, async (req, res) => {
+    const data = await eval(modelName).find({});
+    res.render('admin/' + model.name, { [collection]: data });
+  });
+
+  /* Add new page */
+  router.get('/' + model.name + '/new', ensureAuthenticated, (req, res) => {
+    res.render('admin/' + model.name + '/new_' + modelName.toLowerCase());
+  });
+});
 
 module.exports = router;
