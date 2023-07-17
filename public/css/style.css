@@ -700,6 +700,7 @@ aside .bottom {
   margin-right: auto;
   opacity: 75%;
   border-radius: 10px;
+  max-width: min(600px, 100%);
 }
 #bio blockquote {
   max-width: 400px;

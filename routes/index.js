@@ -33,18 +33,7 @@ router.get('/event/:slug', async (req, res) => {
 /* Bio */
 router.get('/bio', async (req, res) => {
   const data = await Content.findOne({ name: 'bio' });
-  if (!data)
-    res.render('client/bio', {
-      quote: 'db conn failed',
-      bio: 'db conn failed',
-    });
-  else {
-    const body = JSON.parse(data.body);
-    res.render('client/bio', {
-      quote: body.quote,
-      bio: body.bio,
-    });
-  }
+  res.render('client/bio', { data });
 });
 
 /* Contact */

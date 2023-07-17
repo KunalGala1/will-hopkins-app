@@ -1,22 +1,47 @@
+<%
+const body = JSON.parse(data.body);
+const id = data._id;
+const file = body.file;
+const quote = body.quote;
+const bio = body.bio;
+%>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Dashboard | Bio</title>
-    <%- include('../partials/head') %>
-  </head>
-  <body class="dashboard">
-    <%- include('../partials/aside') %>
-    <script>
-      document.querySelector('aside .middle ul li:nth-child(2) a').classList.add('active');
-    </script>
-    <main id="dashboard-bio">
-      <h1 class="secondary-header">Biography</h1>
-      <%- include('../partials/form', { metadata: { method: 'PUT', action: '/dashboard/bio/' + id, name: 'bio' }, fields: [ { type: 'file', name: 'image', }, { tag: 'textarea', name: 'quote', value: quote, }, { type: 'file', name: 'shortBioFile', label: 'Short Bio', }, { type: 'file', name: 'longBioFile', label: 'Long Bio', }, { tag: 'textarea', name: 'bio', value: bio, height: 500 } ] }) %>
-    </main>
 
-    <script src="/js/previewImage.js" defer></script>
-  </body>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Will Hopkins | Dashboard | Bio</title>
+		<%- include('../partials/head') %>
+	</head>
+
+	<body class="dashboard">
+		<%- include('../partials/aside') %>
+		<script>
+			document.querySelector( 'aside .middle ul li:nth-child(2) a' )
+				.classList.add( 'active' );
+		</script>
+		<main id="dashboard-bio">
+			<h1 class="secondary-header">Biography</h1>
+			<%- include('../partials/form', {
+      metadata: {
+        method: 'put',
+        action: '/dashboard/bio/' + id,
+        name: 'bio'
+      },
+      fields: [
+        { type: 'file', label: 'image', file: file},
+        { tag: 'textarea', name: 'quote', value: quote },
+        // { type: 'file', name: 'shortBioFile', label: 'Short Bio' },
+        // { type: 'file', name: 'longBioFile', label: 'Long Bio' },
+        { tag: 'textarea', name: 'bio', value: bio, height: 500 }
+      ]
+    }) %>
+		</main>
+
+		<script src="/js/previewImage.js" defer></script>
+	</body>
+
 </html>

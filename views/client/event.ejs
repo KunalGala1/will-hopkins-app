@@ -1,52 +1,86 @@
-<% const eventObject = JSON.parse(event.body); %>
+<%
+const body = JSON.parse(event.body);
+const slug = body.slug;
+const image = body.file.filename;
+const title = body.title;
+const date = body.date;
+const time = body.time;
+const location = body.location;
+const shortDescription = body.shortDescription;
+const longDescription = body.longDescription;
+%>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | <%= eventObject.title %></title>
-    <%- include('../partials/head') %>
-  </head>
-  <body>
-    <%- include('../partials/nav') %>
-    <script>
-      document
-        .querySelector('nav ul li:nth-child(2) a')
-        .classList.add('active');
-    </script>
-    <main id="event">
-      <div class="banner">
-        <div class="image-container">
-          <img src="/uploads/<%= eventObject.file.filename %>" alt="" />
-        </div>
-      </div>
-      <div class="header">
-        <h1 class="event-header"><%= eventObject.title %></h1>
-        <span class="date"><%= eventObject.date %></span>
-        <span class="time"><%= eventObject.time %></span>
-        <span class="location"><%= eventObject.location %></span>
-      </div>
-      <div class="content"><%- eventObject.longDescription %></div>
-    </main>
-    <%- include('../partials/footer') %>
-  </body>
 
-  <script></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Will Hopkins | <%= title %></title>
+		<%- include('../partials/head') %>
+	</head>
+
+	<body>
+		<%- include('../partials/nav') %>
+		<script>
+			document
+				.querySelector( 'nav ul li:nth-child(2) a' )
+				.classList.add( 'active' );
+		</script>
+		<main id="event">
+			<div class="banner">
+				<div class="image-container">
+					<img src="/uploads/<%= image %>" alt="" />
+				</div>
+			</div>
+			<div class="header">
+				<h1 class="event-header"><%= title %></h1>
+
+				<% if (date) { %>
+				<span class="date"><%= date %></span>
+
+				<% } %>
+
+				<% if (time) { %>
+				<span class="time"><%= time %></span>
+				<% } %>
+
+				<% if (location) { %>
+				<span class="location"><%= location %></span>
+				<% } %>
+
+			</div>
+
+			<div class="content"><%- longDescription %></div>
+
+		</main>
+		<%- include('../partials/footer') %>
+	</body>
+
+	<script></script>
+
 </html>
 
 <script type="module">
-  import { convertTime } from '../js/utils.js';
-  import { formatDate } from '../js/utils.js';
+	import {
+		convertTime
+	} from '../js/utils.js';
+	import {
+		formatDate
+	} from '../js/utils.js';
 
-  // Convert time to 12 hour format
-  document.querySelector('span.time').innerText = convertTime(
-    document.querySelector('span.time').innerText
-  );
+	// Convert time to 12 hour format
+	document.querySelector( 'span.time' )
+		.innerText = convertTime(
+			document.querySelector( 'span.time' )
+			.innerText
+		);
 
-  // Format date
-  document.querySelector('span.date').innerText = formatDate(
-    document.querySelector('span.date').innerText
-  );
+	// Format date
+	document.querySelector( 'span.date' )
+		.innerText = formatDate(
+			document.querySelector( 'span.date' )
+			.innerText
+		);
 </script>

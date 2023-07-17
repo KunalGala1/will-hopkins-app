@@ -58,12 +58,7 @@ ContentDocuments.forEach(document => {
 /* Bio */
 router.get('/bio', ensureAuthenticated, async (req, res) => {
   const data = await Content.findOne({ name: 'bio' });
-  const body = JSON.parse(data.body);
-  res.render('admin/bio', {
-    quote: body.quote,
-    bio: body.bio,
-    id: data.id,
-  });
+  res.render('admin/bio', { data });
 });
 
 /* Works */

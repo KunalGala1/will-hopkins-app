@@ -93,6 +93,7 @@ const updateSlugs = form => {
 // File upload
 const uploadFile = async (fileInput, formObject) => {
   const file = fileInput.files[0];
+  console.log(file);
   const formData = new FormData();
   formData.append('file', file);
   const res = await fetch('/upload', {
@@ -114,6 +115,7 @@ const persistFile = async (endpoint, formObject, nestedProperty) => {
 
 const handleFileUploads = (form, method, action, name, formObject, promises) => {
   const fileInputs = form.querySelectorAll('input[type="file"]');
+  console.log(fileInputs);
   for (const fileInput of fileInputs) {
     if (method == 'post') {
       // upload file
