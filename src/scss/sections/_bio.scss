@@ -25,7 +25,9 @@
     margin-right: auto;
     opacity: 75%;
     @include l.radius(md);
+    max-width: min(600px, 100%);
   }
+
   blockquote {
     max-width: 400px;
     margin: 0 auto;
