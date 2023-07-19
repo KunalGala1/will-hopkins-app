@@ -1,28 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Dashboard</title>
-    <%- include('../partials/head') %>
-  </head>
-  <body class="dashboard">
-    <%- include('../partials/aside') %>
-    <script>
-      document.querySelector('aside ul li:nth-child(2) a').classList.add('active');
-    </script>
-    <main id="dashboard-home">
-      <h1 class="secondary-header">Welcome <%= name %></h1>
 
-      <!-- Quote Form -->
-      <%- include('../partials/form', { metadata: { method: 'put', action: '/dashboard/quote/' + quote._id, id: quote._id , name: 'quote' }, fields: [ { name: 'quote', value: JSON.parse(quote.body).quote }, { name: 'attribution', value: JSON.parse(quote.body).attribution } ] }) %>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Will Hopkins | Dashboard</title>
+		<%- include('../partials/head') %>
+	</head>
 
-      <!-- Intro Form -->
-      <%- include('../partials/form', { metadata: { method: 'put', action: '/dashboard/intro/' + intro._id, id: intro._id , name: 'intro' }, fields: [ { name: 'intro', tag: 'textarea', value: JSON.parse(intro.body).intro } ] }) %>
+	<body class="dashboard">
+		<%- include('../partials/aside') %>
+		<script>
+			document.querySelector( 'aside ul li:nth-child(2) a' )
+				.classList.add( 'active' );
+		</script>
+		<main id="dashboard-home">
+			<h1 class="secondary-header">Welcome <%= name %></h1>
 
-      <!-- News Form -->
-      <%- include('../partials/form', { metadata: { method: 'put', action: '/dashboard/news/' + news._id, id: news._id , name: 'news' }, fields: [ { name: 'news', tag: 'textarea', value: JSON.parse(news.body).news } ] }) %>
-    </main>
-  </body>
+			<!-- Quote Form -->
+			<%- include('../partials/form', {
+      metadata: {
+        method: 'put',
+        action: '/dashboard/quote/' + quote._id,
+        id: quote._id,
+        name: 'quote'
+      },
+      fields: [
+        { name: 'quote', value: JSON.parse(quote.body).quote },
+        { name: 'attribution', value: JSON.parse(quote.body).attribution }
+      ]
+    }) %>
+
+			<!-- Intro Form -->
+			<%- include('../partials/form', {
+      metadata: {
+        method: 'put',
+        action: '/dashboard/intro/' + intro._id,
+        id: intro._id,
+        name: 'intro'
+      },
+      fields: [
+        { name: 'intro', tag: 'textarea', value: JSON.parse(intro.body).intro }
+      ]
+    }) %>
+
+			<!-- News Form -->
+			<%- include('../partials/form', {
+      metadata: {
+        method: 'put',
+        action: '/dashboard/news/' + news._id,
+        id: news._id,
+        name: 'news'
+      },
+      fields: [
+        { name: 'news', tag: 'textarea', value: JSON.parse(news.body).news }
+      ]
+    }) %>
+		</main>
+	</body>
+
 </html>

@@ -18,27 +18,30 @@
 		</script>
 		<main id="works" data-cli>
 			<ul class="container">
+
+				<div><%- JSON.parse(repertoire.body).repertoire %></div>
+
 				<% for( let i = 0; i < works.length; i++ ) { %>
 
 				<li class="card">
 					<div class="content">
-						<h3 class="title">
+						<h3 class="third-header">
 							<%= JSON.parse(works[i].body).title %>
 						</h3>
-						<p class="composer">
-							<%= JSON.parse(works[i].body).composer %>
-						</p>
-						<p class="year">
-							<%= JSON.parse(works[i].body).year %>
-						</p>
-						<p class="tag">
-							<%= JSON.parse(works[i].body).tag %>
-						</p>
-						<p class="description">
+						<ul>
+							<li>
+								<%= JSON.parse(works[i].body).composer %>
+							</li>
+							<li>
+								<%= JSON.parse(works[i].body).year %>
+							</li>
+							<li>
+								<%= JSON.parse(works[i].body).tag %>
+							</li>
+						</ul>
+						<div class="main-text">
 							<%- JSON.parse(works[i].body).description %>
-						</p>
-
-					</div>
+						</div>
 				</li>
 				<% } %>
 				</div>
