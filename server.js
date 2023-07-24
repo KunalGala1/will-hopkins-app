@@ -82,6 +82,13 @@ app.post("/upload", upload.single("file"), (req, res) => {
   res.json({ success: true, file: req.file });
 });
 
+// Serve sitemap
+app.get("/sitemap.xml", (req, res) => {
+  res
+    .status(200)
+    .sendFile("sitemap.xml", { root: path.join(__dirname, "../public") });
+});
+
 // routes
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
