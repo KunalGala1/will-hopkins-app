@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Will Hopkins | Home</title>
-    <%- include('../partials/head') %>
-  </head>
-  <body>
-    <%- include('../sections/hero') %> <%- include('../partials/nav') %>
-    <script>
-      document
-        .querySelector('nav ul li:nth-child(1) a')
-        .classList.add('active');
-    </script>
-    <%- include('../sections/carousal') %> <%- include('../sections/intro.ejs')
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will Hopkins | Home</title>
+  <meta name="description" content="Will Hopkins - (b. 1999) is an American percussionist, drummer, producer and composer based in New York City. Born and raised in Dallas, TX, Will moved to New York in 2017 and has since then performed with numerous groups and ensembles in a broad array of styles and aesthetics.">
+  <%- include('../partials/head') %>
+</head>
+
+<body>
+  <%- include('../sections/hero') %> <%- include('../partials/nav') %>
+  <script>
+    document
+      .querySelector('nav ul li:nth-child(1) a')
+      .classList.add('active');
+  </script>
+  <%- include('../sections/carousal') %> <%- include('../sections/intro.ejs')
     %> <%- include('../sections/news') %> <%- include('../partials/footer') %>
-  </body>
+</body>
+
 </html>
