@@ -56,8 +56,6 @@ AWS.config.update({
   region: "us-east-2",
 });
 
-const s3_old = new AWS.S3();
-
 const s3 = new S3Client({
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -67,19 +65,6 @@ const s3 = new S3Client({
 });
 
 // Multer
-
-const storage_old = multer.diskStorage({
-  destination: "public/uploads",
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
-
-const upload_old = multer({ storage: storage_old });
-app.post("/upload_old", upload_old.single("file"), (req, res) => {
-  console.log(req.file);
-  res.json({ success: true, file: req.file });
-});
 
 const upload = multer({
   storage: multerS3({
