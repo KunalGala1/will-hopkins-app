@@ -1,14 +1,40 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 #works[data-cli] {
+  @include l.padding(md);
+
+  .header {
+    @include t.sans;
+    @include l.max-width(md);
+    margin-bottom: 30px;
+  }
+
   .container {
-    @include l.padding(lg);
     @include l.max-width(md);
   }
 
   .card + .card {
     margin-top: 30px;
+  }
+
+  $color: 200;
+
+  .card {
+    background-color: rgba($color, $color, $color, 0.1);
+    @include l.padding(sm);
+    @include l.radius(sm);
+    ul {
+      color: var(--200);
+    }
+
+    .main-text {
+      background-color: rgba($color, $color, $color, 0.1);
+      @include l.padding(sm);
+      @include l.radius(sm);
+      margin: 10px 0;
+      @include t.sans;
+    }
   }
 }

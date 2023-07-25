@@ -106,7 +106,9 @@ blockquote {
 }
 
 .third-header {
-  font-family: "Georgia", serif;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 5px;
+  color: var(--main-accent);
 }
 
 .event-header {
@@ -883,11 +885,22 @@ aside .bottom {
   transition: all 0.3s ease-in-out;
 }
 
+#works[data-cli] {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#works[data-cli] .header {
+  font-family: "Roboto", sans-serif;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-bottom: 30px;
+}
 #works[data-cli] .container {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-left: 60px;
-  padding-right: 60px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -896,6 +909,27 @@ aside .bottom {
 }
 #works[data-cli] .card + .card {
   margin-top: 30px;
+}
+#works[data-cli] .card {
+  background-color: rgba(200, 200, 200, 0.1);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+}
+#works[data-cli] .card ul {
+  color: var(--200);
+}
+#works[data-cli] .card .main-text {
+  background-color: rgba(200, 200, 200, 0.1);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-family: "Roboto", sans-serif;
 }
 
 #events[data-dashboard] .no-padding {

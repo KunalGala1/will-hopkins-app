@@ -1,6 +1,6 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 /* Headers */
 
@@ -17,7 +17,7 @@
   text-align: center;
   @include t.serif;
   &:after {
-    content: '';
+    content: "";
     display: block;
     width: 100%;
     height: 1px;
@@ -27,7 +27,9 @@
 }
 
 .third-header {
-  @include t.serif;
+  @include t.sans;
+  padding-bottom: 5px;
+  color: var(--main-accent);
 }
 
 .event-header {
