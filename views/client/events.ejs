@@ -81,17 +81,15 @@
   document.querySelectorAll('#events[data-cli] .card')
     .forEach(card => {
       // Convert time to 12 hour format
-      card.querySelector('span.time')
-        .innerText = convertTime(
-          card.querySelector('span.time')
-          .innerText
-        );
+      let timeElement = card.querySelector('span.time');
+      if (timeElement) {
+        timeElement.innerText = convertTime(timeElement.innerText);
+      }
 
       // Format date
-      card.querySelector('span.date')
-        .innerText = formatDate(
-          card.querySelector('span.date')
-          .innerText
-        );
+      let dateElement = card.querySelector('span.date');
+      if (dateElement) {
+        dateElement.innerText = formatDate(dateElement.innerText);
+      }
     });
 </script>

@@ -9,7 +9,6 @@ const passport = require("passport");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const flash = require("connect-flash");
-const AWS = require("aws-sdk");
 const { S3Client } = require("@aws-sdk/client-s3");
 
 // db
@@ -49,13 +48,6 @@ app.use(passport.session());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// AWS
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: "us-east-2",
-});
-
 const s3 = new S3Client({
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -92,7 +84,7 @@ app.get("/sitemap.xml", (req, res) => {
 // routes
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
-app.use("/", require("./routes/mail"));
+// app.use("/", require("./routes/mail"));
 app.use("/dashboard", require("./routes/dashboard"));
 
 app.listen(PORT, "0.0.0.0", () => {

@@ -570,6 +570,7 @@ aside .bottom {
 #events[data-cli] .container {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 60px;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -581,7 +582,6 @@ aside .bottom {
   margin-top: 0;
   margin-bottom: 0;
   justify-content: center;
-  align-items: center;
 }
 #events[data-cli] .card {
   max-width: 360px;

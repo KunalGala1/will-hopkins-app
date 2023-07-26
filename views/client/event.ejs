@@ -71,16 +71,14 @@ const longDescription = body.longDescription;
   } from '../js/utils.js';
 
   // Convert time to 12 hour format
-  document.querySelector('span.time')
-    .innerText = convertTime(
-      document.querySelector('span.time')
-      .innerText
-    );
+  let timeElement = document.querySelector('span.time');
+  if (timeElement) {
+    timeElement.innerText = convertTime(timeElement.innerText);
+  }
 
   // Format date
-  document.querySelector('span.date')
-    .innerText = formatDate(
-      document.querySelector('span.date')
-      .innerText
-    );
+  let dateElement = document.querySelector('span.date');
+  if (dateElement) {
+    dateElement.innerText = formatDate(dateElement.innerText);
+  }
 </script>
