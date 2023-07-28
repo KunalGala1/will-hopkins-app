@@ -2,6 +2,7 @@
 const body = JSON.parse(data.body);
 const id = data._id;
 const image = body.file.location;
+const alt = body.file.alt;
 const quote = body.quote;
 const bio = body.bio;
 
@@ -10,44 +11,39 @@ const bio = body.bio;
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Will Hopkins | Bio</title>
-		<%- include('../partials/head') %>
-	</head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will Hopkins | Bio</title>
+  <%- include('../partials/head') %>
+</head>
 
-	<body>
-		<%- include('../partials/nav') %>
-		<script>
-			document
-				.querySelector( 'nav ul li:nth-child(3) a' )
-				.classList.add( 'active' );
-		</script>
-		<main id="bio">
-			<div class="block">
-				<img src="<%= image %>" alt="headshot" />
-				<blockquote><%- quote %></blockquote>
-			</div>
+<body>
+  <%- include('../partials/nav') %>
+  <main id="bio">
+    <div class="block">
+      <img src="<%= image %>" alt="<%= alt %>" />
+      <blockquote><%- quote %></blockquote>
+    </div>
 
-			<div class="block content">
-				<div>
-					<span>
-						<img src="<%= image %>" alt="headshot" />
-						<blockquote><%- quote %></blockquote>
-					</span>
-					<div class="text"><%- bio %></div>
-				</div>
-				<div class="files">
-					<ul role="list">
-						<li><a href="#">short_bio.zip</a></li>
-						<li><a href="#">full_bio.zip</a></li>
-					</ul>
-				</div>
-			</div>
-		</main>
-		<%- include('../partials/footer') %>
-	</body>
+    <div class="block content">
+      <div>
+        <span>
+          <img src="<%= image %>" alt="<%= alt %>" />
+          <blockquote><%- quote %></blockquote>
+        </span>
+        <div class="text"><%- bio %></div>
+      </div>
+      <div class="files">
+        <ul role="list">
+          <li><a href="#">short_bio.zip</a></li>
+          <li><a href="#">full_bio.zip</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
 
 </html>

@@ -16,6 +16,8 @@ router.post("/mailsend", async (req, res) => {
   const { name, email, subject, message } = req.body;
   console.log("Data: ", req.body);
 
+  const messageHtml = message.replace(/\n/g, "<br>");
+
   const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
@@ -25,8 +27,8 @@ router.post("/mailsend", async (req, res) => {
         <li>Subject: ${subject}</li>
     </ul>
     <h3>Message</h3>
-    <p>${message}</p>
-    `;
+    <p>${messageHtml}</p>
+  `;
 
   const mailOptions = {
     from: "k2awesomeness@gmail.com",
@@ -37,7 +39,7 @@ router.post("/mailsend", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).render("client/contact", { msg: "Email has been sent" });
+    res.status(200).json({ msg: "Email has been sent" });
   } catch (error) {
     console.log(error);
     res.status(500).send("Error sending email");

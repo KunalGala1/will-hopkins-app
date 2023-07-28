@@ -1,13 +1,12 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 #contact {
   @include l.max-width(md);
   margin: 0 auto;
   padding: 30px;
-  p[role='contentinfo'] {
-    padding: 30px;
+  p[role="contentinfo"] {
     color: var(--200);
     @include t.serif;
     line-height: 2;

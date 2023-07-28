@@ -1,28 +1,33 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
-.flash-message {
+.toast-notification {
   position: fixed;
-  top: 10px;
+  top: 32px;
   right: 50%;
   transform: translateX(50%);
   z-index: 9999;
   width: max-content;
+
+  @include a.transition;
+  @include a.boxshadow(sm);
   @include l.padding(xs, sm);
+  @include l.radius(xs);
   @include t.sans;
-  @include l.radius(lg);
-  @include a.boxshadow;
+
   color: var(--247);
   font-size: 14px;
-  @include a.transition;
   opacity: 0;
+
   &.active {
     opacity: 1;
   }
+
   &.success {
     background-color: var(--success);
   }
+
   &.danger {
     background-color: var(--danger);
   }

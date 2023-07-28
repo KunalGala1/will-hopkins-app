@@ -1,0 +1,119 @@
+{
+  "events": {
+    "metadata": {
+      "action": "/dashboard/events",
+      "enctype": "multipart/form-data",
+      "name": "events"
+    },
+    "fields": [
+      { "name": "title", "required": true },
+      { "type": "hidden", "name": "slug" },
+      {
+        "tag": "textarea",
+        "name": "shortDescription",
+        "label": "short description"
+      },
+      { "type": "date" },
+      { "type": "time" },
+      { "type": "url", "label": "URL" },
+      { "name": "location" },
+      { "type": "file", "label": "image" },
+      {
+        "tag": "textarea",
+        "name": "longDescription",
+        "label": "long description"
+      }
+    ]
+  },
+  "works": {
+    "metadata": {
+      "action": "/dashboard/works",
+      "enctype": "multipart/form-data",
+      "name": "works"
+    },
+    "fields": [
+      { "name": "title", "required": true },
+      { "name": "composer" },
+      { "name": "year" },
+      {
+        "tag": "select",
+        "name": "tag",
+        "options": [
+          "solo",
+          "chamber",
+          "ensemble",
+          "orchestral",
+          "electronic",
+          "vocal",
+          "choral",
+          "opera",
+          "dance",
+          "theatre",
+          "film",
+          "installation",
+          "other"
+        ]
+      },
+      { "tag": "textarea", "name": "description" }
+    ]
+  },
+  "videos": {
+    "metadata": {
+      "action": "/dashboard/videos",
+      "name": "videos"
+    },
+    "fields": [
+      { "tag": "textarea", "name": "title", "required": true },
+      {
+        "tag": "textarea",
+        "name": "shortDescription",
+        "label": "short description"
+      },
+      { "tag": "textarea", "name": "video" }
+    ]
+  },
+  "bio": {
+    "metadata": {
+      "action": "/dashboard/bio",
+      "name": "bio",
+      "heading": "bio",
+      "notification": "bio",
+      "flag": "content"
+    },
+    "fields": [
+      { "type": "file", "label": "image" },
+      { "tag": "textarea", "name": "quote" },
+      { "tag": "textarea", "name": "bio" }
+    ]
+  },
+  "quote": {
+    "metadata": {
+      "action": "/dashboard/quote",
+      "name": "quote",
+      "heading": "quote",
+      "notification": "quote",
+      "flag": "content"
+    },
+    "fields": [{ "name": "quote" }, { "name": "attribution" }]
+  },
+  "intro": {
+    "metadata": {
+      "action": "/dashboard/intro",
+      "name": "intro",
+      "heading": "intro",
+      "notification": "intro",
+      "flag": "content"
+    },
+    "fields": [{ "tag": "textarea", "name": "intro" }]
+  },
+  "news": {
+    "metadata": {
+      "action": "/dashboard/news",
+      "name": "news",
+      "heading": "news",
+      "notification": "news",
+      "flag": "content"
+    },
+    "fields": [{ "tag": "textarea", "name": "news" }]
+  }
+}

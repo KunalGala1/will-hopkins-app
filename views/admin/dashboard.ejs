@@ -1,63 +1,60 @@
+<%
+list.forEach( (doc, index) => {
+  const data = formData[doc];
+  data.metadata.method = 'PUT';
+  const baseURL = data.metadata.action;
+  data.metadata.action = baseURL + '/' + docs[index]._id;
+
+  let parsedBody = JSON.parse(docs[index].body);
+
+  data.fields.forEach(field => {
+    switch (field.type) {
+      case 'hidden':
+        // Do nothing
+        break;
+      case 'file':
+        field.file = parsedBody.file;
+        break;
+      default:
+        field.value = parsedBody[field.name];
+    }
+  });
+})
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Will Hopkins | Dashboard</title>
-		<%- include('../partials/head') %>
-	</head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will Hopkins | Dashboard</title>
+  <%- include('../partials/head') %>
+</head>
 
-	<body class="dashboard">
-		<%- include('../partials/aside') %>
-		<script>
-			document.querySelector( 'aside ul li:nth-child(2) a' )
-				.classList.add( 'active' );
-		</script>
-		<main id="dashboard-home">
-			<h1 class="secondary-header">Welcome <%= name %></h1>
+<body class="dashboard">
+  <%- include('../partials/aside') %>
+  <script>
+    document.querySelector('aside ul li:nth-child(2) a')
+      .classList.add('active');
+  </script>
+  <main class="sp-aside-left">
+    <!-- Quote Form -->
+    <%- include('../partials/form', formData["quote"]) %>
 
-			<!-- Quote Form -->
-			<%- include('../partials/form', {
-      metadata: {
-        method: 'put',
-        action: '/dashboard/quote/' + quote._id,
-        id: quote._id,
-        name: 'quote'
-      },
-      fields: [
-        { name: 'quote', value: JSON.parse(quote.body).quote },
-        { name: 'attribution', value: JSON.parse(quote.body).attribution }
-      ]
-    }) %>
+    <!-- Intro Form -->
+    <%- include('../partials/form', formData["intro"]) %>
 
-			<!-- Intro Form -->
-			<%- include('../partials/form', {
-      metadata: {
-        method: 'put',
-        action: '/dashboard/intro/' + intro._id,
-        id: intro._id,
-        name: 'intro'
-      },
-      fields: [
-        { name: 'intro', tag: 'textarea', value: JSON.parse(intro.body).intro }
-      ]
-    }) %>
-
-			<!-- News Form -->
-			<%- include('../partials/form', {
-      metadata: {
-        method: 'put',
-        action: '/dashboard/news/' + news._id,
-        id: news._id,
-        name: 'news'
-      },
-      fields: [
-        { name: 'news', tag: 'textarea', value: JSON.parse(news.body).news }
-      ]
-    }) %>
-		</main>
-	</body>
+    <!-- News Form -->
+    <%- include('../partials/form', formData["news"]) %>
+  </main>
+</body>
 
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.dashboard-form--wrapper').forEach(el => el.classList.add("small"))
+  })
+</script>

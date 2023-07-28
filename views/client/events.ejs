@@ -11,30 +11,27 @@
 
 <body>
   <%- include('../partials/nav') %>
-  <script>
-    document
-      .querySelector('nav ul li:nth-child(2) a')
-      .classList.add('active');
-  </script>
   <main id="events" data-cli>
     <div class="container">
       <% for( let i = 0; i < events.length; i++ ) { %>
 
       <%
           // Variables
-          const slug =  JSON.parse(events[i].body).slug;
-          const image = JSON.parse(events[i].body).file.location
-          const title = JSON.parse(events[i].body).title;
-          const date = JSON.parse(events[i].body).date;
-          const time = JSON.parse(events[i].body).time;
-          const location = JSON.parse(events[i].body).location;
-          const shortDescription = JSON.parse(events[i].body).shortDescription;
+          const body = JSON.parse(events[i].body);
+          const slug =  body.slug;
+          const image = body.file.location;
+          const alt = body.file.alt;
+          const title = body.title;
+          const date = body.date;
+          const time = body.time;
+          const location = body.location;
+          const shortDescription = body.shortDescription;
         %>
 
       <div class="card">
         <a href="/event/<%= slug %>">
           <div class="image-container">
-            <img src="<%= image %>" alt="" />
+            <img src="<%= image %>" alt="<%= alt %>" />
           </div>
         </a>
         <div class="content">

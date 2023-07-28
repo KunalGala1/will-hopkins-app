@@ -84,7 +84,7 @@ app.get("/sitemap.xml", (req, res) => {
 // routes
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
-// app.use("/", require("./routes/mail"));
+app.use("/", require("./routes/mail"));
 app.use("/dashboard", require("./routes/dashboard"));
 
 app.listen(PORT, "0.0.0.0", () => {

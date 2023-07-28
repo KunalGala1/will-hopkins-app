@@ -11,11 +11,6 @@
 
 <body>
   <%- include('../partials/nav') %>
-  <script>
-    document
-      .querySelector('nav ul li:nth-child(5) a')
-      .classList.add('active');
-  </script>
   <main id="works" data-cli>
     <div class="header"><%- JSON.parse(repertoire.body).repertoire %></div>
     <ul class="container">

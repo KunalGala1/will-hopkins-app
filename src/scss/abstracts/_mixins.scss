@@ -1,4 +1,8 @@
-@mixin transition($property: all, $duration: 0.3s, $timing-function: ease-in-out) {
+@mixin transition(
+  $property: all,
+  $duration: 0.3s,
+  $timing-function: ease-in-out
+) {
   transition: $property $duration $timing-function;
 }
 
@@ -15,4 +19,13 @@ $bs: (
   } @else {
     box-shadow: $key;
   }
+}
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }

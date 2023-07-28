@@ -1,10 +1,17 @@
 <nav>
-	<ul>
-		<li><a href="/">home</a></li>
-		<li><a href="/events">events</a></li>
-		<li><a href="/bio">bio</a></li>
-		<li><a href="/listen">listen</a></li>
-		<li><a href="/repertoire">repertoire</a></li>
-		<li><a href="/contact">contact</a></li>
-	</ul>
+  <ul>
+    <li><a href="/" class="link nav-link">home</a></li>
+    <li><a href="/events" class="link nav-link">events</a></li>
+    <li><a href="/bio" class="link nav-link">bio</a></li>
+    <li><a href="/listen" class="link nav-link">listen</a></li>
+    <li><a href="/repertoire" class="link nav-link">repertoire</a></li>
+    <li><a href="/contact" class="link nav-link">contact</a></li>
+  </ul>
 </nav>
+
+<script>
+  const currentPath = window.location.pathname.replace(/\/$/, '');
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === currentPath || (link.getAttribute('href') === '/' && currentPath === ''));
+  });
+</script>

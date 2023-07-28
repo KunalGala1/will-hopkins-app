@@ -1,38 +1,115 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
-.primary-table {
-  color: var(--40);
-  width: 100%;
+table {
   border-collapse: collapse;
-  border-spacing: 0;
-  border: 1px solid var(--200);
-  border-radius: 4px;
-  overflow: hidden;
-  td,
+}
+
+/* Dashboard Table */
+.dashboard-table--container {
+  @include l.padding(md);
+}
+
+.dashboard-table {
+  @include t.util;
+  width: 100%;
+  thead {
+    background-color: rgba(150, 150, 150, 0.1);
+    color: var(--100);
+    text-transform: capitalize;
+  }
+
   th {
-    border: 1px solid var(--200);
+    font-weight: 500;
+  }
+
+  th {
     text-align: left;
-    padding: 15px;
+  }
+
+  th,
+  td {
+    @include l.padding(xs, sm);
+  }
+
+  @mixin overflow {
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  col.icon {
-    width: 1%;
+  td {
+    @include overflow;
+    max-width: 100px;
+    max-height: 20px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    em,
+    strong,
+    del,
+    ins,
+    sub,
+    sup,
+    ul,
+    ol,
+    li,
+    table,
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th,
+    a,
+    img,
+    blockquote,
+    code,
+    pre,
+    hr,
+    br,
+    div {
+      @include overflow;
+      font-size: 16px !important;
+      max-height: 22px;
+    }
   }
 
-  a.icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  // Widths
+  th:first-child,
+  td:first-child,
+  th:last-child,
+  td:last-child {
+    width: 20px;
   }
 
-  button.icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    width: 100%;
+  // Borders
+  th:not(:first-child):not(:last-child),
+  td:not(:last-child) {
+    border-right: solid 2px rgba(100, 100, 100, 0.1); /* Add left border to all td elements except the first one */
+  }
+  th {
+    border-bottom: solid 2px rgba(100, 100, 100, 0.5);
+  }
+  tr:not(:last-child) {
+    border-bottom: solid 2px rgba(100, 100, 100, 0.1);
+  }
+}
+
+.dashboard-table--container .table-header {
+  padding-bottom: 20px;
+
+  hr {
+    margin-top: 5px;
+  }
+
+  .btn {
+    margin-top: 20px;
   }
 }

@@ -2,6 +2,7 @@
 const body = JSON.parse(event.body);
 const slug = body.slug;
 const image = body.file.location;
+const alt = body.file.alt;
 const title = body.title;
 const date = body.date;
 const time = body.time;
@@ -31,7 +32,7 @@ const longDescription = body.longDescription;
   <main id="event">
     <div class="banner">
       <div class="image-container">
-        <img src="<%= image %>" alt="" />
+        <img src="<%= image %>" alt="<%= alt %>" />
       </div>
     </div>
     <div class="header">

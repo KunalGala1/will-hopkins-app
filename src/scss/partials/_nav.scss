@@ -1,6 +1,6 @@
-@use '../abstracts/' as a;
-@use '../layout' as l;
-@use '../theme/' as t;
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
 
 nav {
   @include t.sans;
@@ -23,31 +23,5 @@ nav {
 
     max-width: 420px;
     margin: 0 auto;
-  }
-
-  a {
-    font-weight: 300;
-    color: var(--200);
-    &:hover,
-    &.active {
-      color: var(--247);
-      @include a.transition;
-
-      // underline
-      &::after {
-        width: 100%;
-        transition: width 0.3s;
-      }
-    }
-
-    // underline
-    &::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      margin-top: 2px;
-      background-color: var(--accent-color);
-    }
   }
 }
