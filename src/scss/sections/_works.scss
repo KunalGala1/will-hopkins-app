@@ -4,6 +4,9 @@
 
 #works[data-cli] {
   @include l.padding(md);
+  @include l.max(xs) {
+    @include l.padding(sm);
+  }
 
   .header {
     @include t.sans;
@@ -19,22 +22,23 @@
     margin-top: 30px;
   }
 
-  $color: 200;
+  $color: 100;
 
   .card {
-    background-color: rgba($color, $color, $color, 0.1);
+    // background-color: rgba($color, $color, $color, 0.1);
     @include l.padding(sm);
     @include l.radius(sm);
     ul {
       color: var(--200);
+      @include t.sans;
     }
 
     .main-text {
       background-color: rgba($color, $color, $color, 0.1);
       @include l.padding(sm);
-      @include l.radius(sm);
       margin: 10px 0;
       @include t.sans;
+      border-left: solid 3px var(--main-accent);
     }
   }
 }

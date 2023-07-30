@@ -1,0 +1,15 @@
+@use "../abstracts/" as a;
+@use "../layout" as l;
+@use "../theme/" as t;
+
+.mw-sm {
+  @include l.max-width(sm);
+}
+
+.mw-md {
+  @include l.max-width(md);
+}
+
+.mw-lg {
+  @include l.max-width(lg);
+}

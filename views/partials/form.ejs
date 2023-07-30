@@ -13,7 +13,7 @@ const enctype = metadata.enctype ? metadata.enctype : 'application/x-www-form-ur
 
     <div class="header flex justify-between pd-sm">
       <div>
-        <h2 class="dashboard-header"><%= method.toLowerCase === 'post' ? 'Add' : 'Edit' %> <%= heading %></h2>
+        <h2 class="dashboard-header"><%= method.toLowerCase() === 'post' ? 'Add' : 'Edit' %> <%= heading %></h2>
       </div>
       <div class="flex justify-end gap-sm">
         <div>

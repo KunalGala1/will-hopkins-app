@@ -9,6 +9,12 @@
     align-items: flex-start;
     gap: 60px;
     @include l.padding(lg);
+    @include l.max(md) {
+      @include l.padding(md);
+    }
+    @include l.max(xs) {
+      @include l.padding(sm);
+    }
     @include l.max-width(xl);
     justify-content: center;
   }

@@ -5,7 +5,9 @@
 #contact {
   @include l.max-width(md);
   margin: 0 auto;
-  padding: 30px;
+  @include l.max(xs) {
+    @include l.padding(sm);
+  }
   p[role="contentinfo"] {
     color: var(--200);
     @include t.serif;

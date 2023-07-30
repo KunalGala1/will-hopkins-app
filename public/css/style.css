@@ -382,6 +382,33 @@ form .item + .item {
 hr {
   border-top: solid 1px rgba(0, 0, 0, 0.25);
 }
+hr.light {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.mw-sm {
+  max-width: 667.98px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mw-md {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.mw-lg {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 /* Components */
 .sp-aside-left {
@@ -793,7 +820,7 @@ table {
 }
 
 .third-header {
-  font-family: "Roboto", sans-serif;
+  font-family: "Georgia", serif;
   padding-bottom: 5px;
   color: var(--main-accent);
 }
@@ -804,6 +831,18 @@ table {
   font-size: 80px;
   text-align: center;
   margin: 100px 0;
+}
+@media (max-width: 768px) {
+  .event-header {
+    font-size: 60px;
+    margin: 80px 0;
+  }
+}
+@media (max-width: 576px) {
+  .event-header {
+    font-size: 40px;
+    margin: 60px 0;
+  }
 }
 
 .dashboard-header {
@@ -1130,6 +1169,22 @@ aside .bottom {
   margin-bottom: 0;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  #events[data-cli] .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media (max-width: 340px) {
+  #events[data-cli] .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 #events[data-cli] .card {
   max-width: 360px;
   padding-top: 30px;
@@ -1327,7 +1382,14 @@ aside .bottom {
   margin-top: 0;
   margin-bottom: 0;
   margin: 0 auto;
-  padding: 30px;
+}
+@media (max-width: 340px) {
+  #contact {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 #contact p[role=contentinfo] {
   color: var(--200);
@@ -1437,6 +1499,14 @@ aside .bottom {
   padding-left: 30px;
   padding-right: 30px;
 }
+@media (max-width: 340px) {
+  #works[data-cli] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 #works[data-cli] .header {
   font-family: "Roboto", sans-serif;
   max-width: 700px;
@@ -1457,7 +1527,6 @@ aside .bottom {
   margin-top: 30px;
 }
 #works[data-cli] .card {
-  background-color: rgba(200, 200, 200, 0.1);
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
@@ -1466,16 +1535,17 @@ aside .bottom {
 }
 #works[data-cli] .card ul {
   color: var(--200);
+  font-family: "Roboto", sans-serif;
 }
 #works[data-cli] .card .main-text {
-  background-color: rgba(200, 200, 200, 0.1);
+  background-color: rgba(100, 100, 100, 0.1);
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 5px;
   margin: 10px 0;
   font-family: "Roboto", sans-serif;
+  border-left: solid 3px var(--main-accent);
 }
 
 #events[data-dashboard] .no-padding {

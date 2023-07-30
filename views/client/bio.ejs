@@ -1,6 +1,6 @@
 <%
-const body = JSON.parse(data.body);
-const id = data._id;
+const body = JSON.parse(docs[0].body);
+const id = docs[0]._id;
 const image = body.file.location;
 const alt = body.file.alt;
 const quote = body.quote;
@@ -42,6 +42,39 @@ const bio = body.bio;
         </ul>
       </div>
     </div>
+  </main>
+
+  <div class="mw-lg pd-sm">
+    <hr class="light">
+  </div>
+
+  <main id="works" data-cli>
+    <div class="header"><%- JSON.parse(docs[1].body).repertoire %></div>
+    <ul class="container">
+      <% for( let i = 0; i < data.length; i++ ) { %>
+
+      <li class="card">
+        <div class="content">
+          <h3 class="third-header">
+            <%= JSON.parse(data[i].body).title %>
+          </h3>
+          <ul>
+            <li>
+              <%= JSON.parse(data[i].body).composer %>
+            </li>
+            <li>
+              <%= JSON.parse(data[i].body).year %>
+            </li>
+            <li>
+              <%= JSON.parse(data[i].body).tag %>
+            </li>
+          </ul>
+          <div class="main-text">
+            <%- JSON.parse(data[i].body).description %>
+          </div>
+      </li>
+      <% } %>
+      </div>
   </main>
   <%- include('../partials/footer') %>
 </body>

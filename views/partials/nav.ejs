@@ -4,7 +4,7 @@
     <li><a href="/events" class="link nav-link">events</a></li>
     <li><a href="/bio" class="link nav-link">bio</a></li>
     <li><a href="/listen" class="link nav-link">listen</a></li>
-    <li><a href="/repertoire" class="link nav-link">repertoire</a></li>
+    <!-- <li><a href="/repertoire" class="link nav-link">repertoire</a></li> -->
     <li><a href="/contact" class="link nav-link">contact</a></li>
   </ul>
 </nav>
@@ -13,5 +13,6 @@
   const currentPath = window.location.pathname.replace(/\/$/, '');
   document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === currentPath || (link.getAttribute('href') === '/' && currentPath === ''));
+    link.setAttribute('data-hover', 'underline'); // optional
   });
 </script>

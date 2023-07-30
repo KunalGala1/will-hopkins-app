@@ -27,7 +27,7 @@
 }
 
 .third-header {
-  @include t.sans;
+  @include t.serif;
   padding-bottom: 5px;
   color: var(--main-accent);
 }
@@ -36,6 +36,14 @@
   @include t.serif;
   color: var(--247);
   font-size: 80px;
+  @include l.max(md) {
+    font-size: 60px;
+    margin: 80px 0;
+  }
+  @include l.max(sm) {
+    font-size: 40px;
+    margin: 60px 0;
+  }
   text-align: center;
   margin: 100px 0;
 }
