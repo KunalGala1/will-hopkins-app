@@ -1,27 +1,3 @@
-<%
-list.forEach( (doc, index) => {
-  const data = formData[doc];
-  data.metadata.method = 'PUT';
-  const baseURL = data.metadata.action;
-  data.metadata.action = baseURL + '/' + docs[index]._id;
-
-  let parsedBody = JSON.parse(docs[index].body);
-
-  data.fields.forEach(field => {
-    switch (field.type) {
-      case 'hidden':
-        // Do nothing
-        break;
-      case 'file':
-        field.file = parsedBody.file;
-        break;
-      default:
-        field.value = parsedBody[field.name];
-    }
-  });
-})
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +17,13 @@ list.forEach( (doc, index) => {
   </script>
   <main class="sp-aside-left">
     <!-- Quote Form -->
-    <%- include('../partials/form', formData["quote"]) %>
+    <%- include('../partials/form', quoteFormData) %>
 
     <!-- Intro Form -->
-    <%- include('../partials/form', formData["intro"]) %>
+    <%- include('../partials/form', introFormData) %>
 
     <!-- News Form -->
-    <%- include('../partials/form', formData["news"]) %>
+    <%- include('../partials/form', newsFormData) %>
   </main>
 </body>
 

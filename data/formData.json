@@ -3,7 +3,8 @@
     "metadata": {
       "action": "/dashboard/events",
       "enctype": "multipart/form-data",
-      "name": "events"
+      "name": "events",
+      "display": "Event"
     },
     "fields": [
       { "name": "title", "required": true },
@@ -29,7 +30,8 @@
     "metadata": {
       "action": "/dashboard/works",
       "enctype": "multipart/form-data",
-      "name": "works"
+      "name": "works",
+      "display": "Work"
     },
     "fields": [
       { "name": "title", "required": true },
@@ -60,7 +62,8 @@
   "videos": {
     "metadata": {
       "action": "/dashboard/videos",
-      "name": "videos"
+      "name": "videos",
+      "display": "Video"
     },
     "fields": [
       { "tag": "textarea", "name": "title", "required": true },
@@ -76,9 +79,7 @@
     "metadata": {
       "action": "/dashboard/bio",
       "name": "bio",
-      "heading": "bio",
-      "notification": "bio",
-      "flag": "content"
+      "display": "Bio"
     },
     "fields": [
       { "type": "file", "label": "image" },
@@ -90,9 +91,7 @@
     "metadata": {
       "action": "/dashboard/quote",
       "name": "quote",
-      "heading": "quote",
-      "notification": "quote",
-      "flag": "content"
+      "display": "Quote"
     },
     "fields": [{ "name": "quote" }, { "name": "attribution" }]
   },
@@ -100,9 +99,7 @@
     "metadata": {
       "action": "/dashboard/intro",
       "name": "intro",
-      "heading": "intro",
-      "notification": "intro",
-      "flag": "content"
+      "display": "Intro"
     },
     "fields": [{ "tag": "textarea", "name": "intro" }]
   },
@@ -110,9 +107,7 @@
     "metadata": {
       "action": "/dashboard/news",
       "name": "news",
-      "heading": "news",
-      "notification": "news",
-      "flag": "content"
+      "heading": "News"
     },
     "fields": [{ "tag": "textarea", "name": "news" }]
   }

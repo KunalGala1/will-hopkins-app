@@ -999,7 +999,9 @@ aside {
 }
 @media (max-width: 768px) {
   aside {
-    display: none;
+    position: static;
+    width: 100%;
+    height: max-content;
   }
 }
 aside .bottom {
@@ -1473,11 +1475,6 @@ aside .bottom {
   color: var(--200);
   font-size: 24px;
   font-weight: 400;
-}
-#login form {
-  width: 500px;
-  border: solid 1px rgba(255, 255, 255, 0.1);
-  padding: 30px;
 }
 #login p,
 #login a {
