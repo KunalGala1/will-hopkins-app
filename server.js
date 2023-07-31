@@ -10,7 +10,6 @@ const multer = require("multer");
 const multerS3 = require("multer-s3");
 const flash = require("connect-flash");
 const { S3Client } = require("@aws-sdk/client-s3");
-const xml = require("xml");
 
 // db
 const connectDB = require("./config/db");
@@ -75,49 +74,11 @@ app.post("/upload", upload.single("file"), (req, res) => {
   res.json({ success: true, file: req.file });
 });
 
-///////////////////////////////////////////////////////////////////////////////
-// Generate sitemap
-const getUrls = () => {
-  return [
-    {
-      url: "http://example.com/page1",
-      lastmod: new Date(),
-      changefreq: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "http://example.com/page2",
-      lastmod: new Date(),
-      changefreq: "daily",
-      priority: 0.9,
-    },
-    // Add as many URLs as you need
-  ];
-};
-
-app.get("/sitemap.xml", (req, res) => {
-  const urls = getUrls();
-  const sitemap = [
-    { _attr: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" } },
-    ...urls.map((url) => ({
-      url: [
-        { loc: url.url },
-        { lastmod: url.lastmod.toISOString().split("T")[0] },
-        { changefreq: url.changefreq },
-        { priority: url.priority },
-      ],
-    })),
-  ];
-
-  res.header("Content-Type", "application/xml");
-  res.send(xml({ urlset: sitemap }, { declaration: true }));
-});
-
-///////////////////////////////////////////////////////////////////////
 // routes
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
 app.use("/", require("./routes/mail"));
+app.use("/", require("./routes/sitemap"));
 app.use("/dashboard", require("./routes/dashboard"));
 
 app.listen(PORT, "0.0.0.0", () => {

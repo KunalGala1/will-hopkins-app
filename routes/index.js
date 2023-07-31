@@ -21,7 +21,7 @@ router.get("/events", async (req, res) => {
   res.render("client/events", { events });
 });
 
-router.get("/event/:slug", async (req, res) => {
+router.get("/events/:slug", async (req, res) => {
   const events = await Event.find();
   const event = events.find(
     (event) => JSON.parse(event.body).slug === req.params.slug

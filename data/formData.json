@@ -4,7 +4,11 @@
       "action": "/dashboard/events",
       "enctype": "multipart/form-data",
       "name": "events",
-      "display": "Event"
+      "display": "Event",
+      "sitemap": {
+        "changefreq": "daily",
+        "priority": 0.6
+      }
     },
     "fields": [
       { "name": "title", "required": true },
@@ -18,7 +22,7 @@
       { "type": "time" },
       { "type": "url", "label": "URL" },
       { "name": "location" },
-      { "type": "file", "label": "image" },
+      { "type": "file", "label": "image", "required": true },
       {
         "tag": "textarea",
         "name": "longDescription",

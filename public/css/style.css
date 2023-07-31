@@ -177,6 +177,15 @@ form select,
 form textarea {
   font-family: "Roboto", sans-serif;
 }
+form label.error, form label.error:active,
+form input.error,
+form input.error:active,
+form select.error,
+form select.error:active,
+form textarea.error,
+form textarea.error:active {
+  outline: solid 1px var(--danger) !important;
+}
 form label,
 form select,
 form select option {

@@ -213,7 +213,7 @@ lists.forEach((list) => {
     } catch (error) {
       res.status(500).json({
         success: false,
-        error: "Something went wrong",
+        error: "Something went wrong: " + error,
       });
     }
   });
