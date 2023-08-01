@@ -58,7 +58,7 @@ const fetchFormData = (key, method, doc) => {
             field.file = body.file;
             break;
           default:
-            field.value = body[field.name];
+            field.value = body[field.name || field.type];
         }
       });
       break;
