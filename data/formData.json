@@ -8,6 +8,10 @@
       "sitemap": {
         "changefreq": "daily",
         "priority": 0.6
+      },
+      "map": {
+        "thead": ["title", "date", "time", "location"],
+        "tbody": ["title", { "type": "date", "key": "date" }, { "type": "time", "key": "time" }, "location"]
       }
     },
     "fields": [
@@ -18,11 +22,12 @@
         "name": "shortDescription",
         "label": "short description"
       },
-      { "type": "date" },
+      { "type": "date", "name": "date", "label": "Start date" },
+      { "type": "date", "name": "endDate", "label": "End date (optional)" },
       { "type": "time" },
       { "type": "url", "label": "URL" },
       { "name": "location" },
-      { "type": "file", "label": "image", "required": true },
+      { "type": "file", "name": "image", "required": true },
       {
         "tag": "textarea",
         "name": "longDescription",
@@ -35,7 +40,11 @@
       "action": "/dashboard/works",
       "enctype": "multipart/form-data",
       "name": "works",
-      "display": "Work"
+      "display": "Work",
+      "map": {
+        "thead": ["title"],
+        "tbody": ["title"]
+      }
     },
     "fields": [
       { "name": "title", "required": true },
@@ -44,21 +53,7 @@
       {
         "tag": "select",
         "name": "tag",
-        "options": [
-          "solo",
-          "chamber",
-          "ensemble",
-          "orchestral",
-          "electronic",
-          "vocal",
-          "choral",
-          "opera",
-          "dance",
-          "theatre",
-          "film",
-          "installation",
-          "other"
-        ]
+        "options": ["solo", "chamber", "ensemble", "orchestral", "electronic", "vocal", "choral", "opera", "dance", "theatre", "film", "installation", "other"]
       },
       { "tag": "textarea", "name": "description" }
     ]
@@ -67,7 +62,11 @@
     "metadata": {
       "action": "/dashboard/videos",
       "name": "videos",
-      "display": "Video"
+      "display": "Video",
+      "map": {
+        "thead": ["title"],
+        "tbody": ["title"]
+      }
     },
     "fields": [
       { "tag": "textarea", "name": "title", "required": true },
@@ -86,9 +85,11 @@
       "display": "Bio"
     },
     "fields": [
-      { "type": "file", "label": "image" },
+      { "type": "file", "name": "image" },
       { "tag": "textarea", "name": "quote" },
-      { "tag": "textarea", "name": "bio" }
+      { "tag": "textarea", "name": "bio" },
+      { "type": "file", "name": "shortBioFile", "label": "Short Bio ZIP File", "accept": "application/zip" },
+      { "type": "file", "name": "longBioFile", "label": "Long Bio ZIP File", "accept": "application/zip" }
     ]
   },
   "quote": {

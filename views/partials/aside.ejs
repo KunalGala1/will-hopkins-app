@@ -1,92 +1,89 @@
+<%
+const asideLinks = [
+  {name: 'quote', fa: 'quote-left'},
+  {name: 'intro', fa: 'paragraph'},
+  {name: 'news', fa: 'newspaper'},
+  {name: "events", fa: "calendar-days"}, 
+  {name: "bio", fa: "book"},
+  {name: "videos", fa: "video"},
+  {name: 'works', fa: 'list'},
+];
+
+const generateAside = (links) => {
+  let html = '<ul>';
+
+  links.forEach(link => {
+    html += `
+    <li>
+      <a href="/dashboard/${link.name}" class="link aside-link">
+        <i class="fa-solid fa-${link.fa}"></i>
+        <span>${link.name}</span>
+      </a>
+    </li>`
+  });
+
+  html += '</ul>';
+
+  return html;
+}
+%>
+
 <aside>
-  <div class="top">
-    <ul>
-      <li>
-        <a href="/" class="link aside-link">
-          <i class="fa-solid fa-house"></i>
-          <span>home</span>
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard" class="link aside-link">
-          <i class="fa-solid fa-gauge"></i>
-          <span>dashboard</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="middle">
-    <ul>
-      <li>
-        <a href="/dashboard/events" class="link aside-link">
-          <i class="fa-solid fa-calendar-days"></i>
-          <span>events</span>
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard/bio" class="link aside-link">
-          <i class="fa-solid fa-book"></i>
-          <span>bio</span>
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard/videos" class="link aside-link">
-          <i class="fa-solid fa-video"></i>
-          <span>videos</span>
-        </a>
-      </li>
-      <li>
-        <a href="/dashboard/works" class="link aside-link">
-          <i class="fa-solid fa-list"></i>
-          <span>Works</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="bottom">
-    <ul>
-      <li>
-        <a href="/logout" class="link aside-link">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          <span>log out</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+	<div class="top">
+		<ul>
+			<li>
+				<a href="/" class="link aside-link">
+					<i class="fa-solid fa-house"></i>
+					<span>home</span>
+				</a>
+			</li>
+			<li>
+				<a href="/dashboard" class="link aside-link">
+					<i class="fa-solid fa-gauge"></i>
+					<span>dashboard</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="middle">
+		<%- generateAside(asideLinks) %>
+	</div>
+	<div class="bottom">
+		<ul>
+			<li>
+				<a href="/logout" class="link aside-link">
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<span>log out</span>
+				</a>
+			</li>
+		</ul>
+	</div>
 </aside>
 
 <script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    // Get current path
-    const path = window.location.pathname;
+	document.addEventListener( 'DOMContentLoaded', ( event ) => {
+		const path = window.location.pathname;
+		const pathParts = path.split( '/' )
+			.filter( part => part !== '' );
+		const links = document.querySelectorAll( '.aside-link' );
 
-    // Split the path into parts
-    const pathParts = path.split('/').filter(part => part !== '');
+		let found = false;
 
-    // Get all aside links
-    const links = document.querySelectorAll('.aside-link');
+		for ( let i = pathParts.length - 1; i >= 0; i-- ) {
+			let searchPath = '/' + pathParts.slice( 0, i + 1 )
+				.join( '/' );
 
-    let found = false;
+			for ( let link of links ) {
+				if ( link.getAttribute( 'href' ) === searchPath ) {
+					link.classList.add( 'active' );
+					found = true;
+					break;
+				}
+			}
 
-    // Start from the end of the pathParts array
-    for (let i = pathParts.length - 1; i >= 0; i--) {
-      // Construct a path to search for
-      let searchPath = '/' + pathParts.slice(0, i + 1).join('/');
-
-      // Iterate over each link
-      for (let link of links) {
-        // If the link's href matches the search path, add the active class
-        if (link.getAttribute('href') === searchPath) {
-          link.classList.add('active');
-          found = true;
-          break;
-        }
-      }
-
-      // If we found a match, we can stop searching
-      if (found) {
-        break;
-      }
-    }
-  });
+			if ( found ) {
+				break;
+			}
+		}
+	} );
 </script>

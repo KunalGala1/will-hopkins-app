@@ -1,7 +1,9 @@
 <%
 const body = JSON.parse(docs[0].body);
 const id = docs[0]._id;
-const image = body.file.location;
+const image = body.file.image.location;
+const shortBioFile = body.file.shortBioFile.location;
+const longBioFile = body.file.longBioFile.location;
 const alt = body.file.alt;
 const quote = body.quote;
 const bio = body.bio;
@@ -11,72 +13,74 @@ const bio = body.bio;
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will Hopkins | Bio</title>
-  <%- include('../partials/head') %>
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Will Hopkins | Bio</title>
+		<%- include('../partials/head') %>
+	</head>
 
-<body>
-  <%- include('../partials/nav') %>
-  <main id="bio">
-    <div class="block">
-      <img src="<%= image %>" alt="<%= alt %>" />
-      <blockquote><%- quote %></blockquote>
-    </div>
+	<body>
+		<%- include('../partials/nav') %>
+		<main id="bio">
+			<div class="block">
+				<img src="<%= image %>" alt="<%= alt %>" />
+				<blockquote><%- quote %></blockquote>
+			</div>
 
-    <div class="block content">
-      <div>
-        <span>
-          <img src="<%= image %>" alt="<%= alt %>" />
-          <blockquote><%- quote %></blockquote>
-        </span>
-        <div class="text"><%- bio %></div>
-      </div>
-      <div class="files">
-        <ul role="list">
-          <li><a href="#">short_bio.zip</a></li>
-          <li><a href="#">full_bio.zip</a></li>
-        </ul>
-      </div>
-    </div>
-  </main>
+			<div class="block content">
+				<div>
+					<span>
+						<img src="<%= image %>" alt="<%= alt %>" />
+						<blockquote><%- quote %></blockquote>
+					</span>
+					<div class="text"><%- bio %></div>
+				</div>
+				<div class="files">
+					<ul role="list">
+						<li><a href="<%= shortBioFile %>" target="_blank">short_bio.zip</a></li>
+						<li><a href="<%= longBioFile %>" target="_blank">full_bio.zip</a></li>
+					</ul>
+				</div>
+			</div>
+		</main>
 
-  <div class="mw-lg pd-sm">
-    <hr class="light">
-  </div>
+		<% if (data.length > 0) { %>
+		<div class="mw-lg pd-sm">
+			<hr class="light">
+		</div>
+		<% } %>
 
-  <main id="works" data-cli>
-    <div class="header"><%- JSON.parse(docs[1].body).repertoire %></div>
-    <ul class="container">
-      <% for( let i = 0; i < data.length; i++ ) { %>
+		<main id="works" data-cli>
+			<div class="header"><%- JSON.parse(docs[1].body).repertoire %></div>
+			<ul class="container">
+				<% for( let i = 0; i < data.length; i++ ) { %>
 
-      <li class="card">
-        <div class="content">
-          <h3 class="third-header">
-            <%= JSON.parse(data[i].body).title %>
-          </h3>
-          <ul>
-            <li>
-              <%= JSON.parse(data[i].body).composer %>
-            </li>
-            <li>
-              <%= JSON.parse(data[i].body).year %>
-            </li>
-            <li>
-              <%= JSON.parse(data[i].body).tag %>
-            </li>
-          </ul>
-          <div class="main-text">
-            <%- JSON.parse(data[i].body).description %>
-          </div>
-      </li>
-      <% } %>
-      </div>
-  </main>
-  <%- include('../partials/footer') %>
-</body>
+				<li class="card">
+					<div class="content">
+						<h3 class="third-header">
+							<%= JSON.parse(data[i].body).title %>
+						</h3>
+						<ul>
+							<li>
+								<%= JSON.parse(data[i].body).composer %>
+							</li>
+							<li>
+								<%= JSON.parse(data[i].body).year %>
+							</li>
+							<li>
+								<%= JSON.parse(data[i].body).tag %>
+							</li>
+						</ul>
+						<div class="main-text">
+							<%- JSON.parse(data[i].body).description %>
+						</div>
+				</li>
+				<% } %>
+				</div>
+		</main>
+		<%- include('../partials/footer') %>
+	</body>
 
 </html>

@@ -9,31 +9,32 @@ const sitemap = metadata.sitemap ? JSON.stringify(metadata.sitemap) : false;
 %>
 
 <div class="dashboard-form--wrapper pd-md">
-  <form class="form dashboard-form handle-form-submission" action="<%= action %>" data-method="<%= method %>" data-id="<%= id %>" enctype="<%= enctype %>" name="<%= name %>" data-display="<%= display %>" data-sitemap="<%= sitemap %>" novalidate>
+	<form class="form dashboard-form handle-form-submission" action="<%= action %>" data-method="<%= method %>" data-id="<%= id %>" enctype="<%= enctype %>" name="<%= name %>" data-display="<%= display %>" data-sitemap="<%= sitemap %>" novalidate>
 
-    <div class="header flex justify-between pd-sm">
-      <div>
-        <h2 class="dashboard-header"><%= method.toLowerCase() === 'post' ? 'Add' : 'Edit' %> <%= display %></h2>
-      </div>
-      <div class="flex justify-end gap-sm">
-        <div>
-          <button type="button" class="btn no-btn" onclick="window.history.back()">Cancel</button>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-success">Save</button>
-        </div>
-        <% if (metadata.saveAndAddNew !== false) { %>
-        <div>
-          <button type="submit" class="btn btn-success" data-response-action="save_and_add_new">Save and Add New</button>
-        </div>
-        <% } %>
-      </div>
-    </div>
+		<div class="header flex justify-between pd-sm">
+			<div>
+				<h2 class="dashboard-header"><%= method.toLowerCase() === 'post' ? 'Add' : 'Edit' %> <%= display %></h2>
+			</div>
+			<div class="flex justify-end gap-sm">
+				<div>
+					<button type="button" class="btn no-btn" onclick="window.history.back()">Cancel</button>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-success">Save</button>
+				</div>
+				<% if (metadata.saveAndAddNew !== false) { %>
+				<div>
+					<button type="submit" class="btn btn-success" data-response-action="save_and_add_new">Save and Add New</button>
+				</div>
+				<% } %>
+			</div>
+		</div>
 
-    <div class="content pd-sm">
-      <% fields.forEach(field => {
+		<div class="content pd-sm">
+			<% fields.forEach(field => {
         const tag = field.tag ? field.tag : 'input';
         const type = field.type ? field.type : 'text';
+        const accept = field.accept ? field.accept : 'image/*';
         const name = field.name ? field.name : type;
         const role = field.role ? field.role : '';
         const label = field.label ? field.label : name;
@@ -47,71 +48,78 @@ const sitemap = metadata.sitemap ? JSON.stringify(metadata.sitemap) : false;
             %><input type="hidden" name="<%= name %>" /><%
           } else {
             %>
-      <div class="item">
-        <div class="subitem">
-          <label for="<%= name %>" <% if (type === 'file') { %> class="file-upload" <% } %>><%= label %><% if (type === 'file') { %> <i class="mg-l-xs fa fa-upload"></i> <% } %></label>
-          <input type="<%= type %>" name="<%= name %>" id="<%= name %>" role="<%= role %>" value="<%= value %>" <%= required ? 'data-required' : '' %> autocomplete="off" <% if (type === 'file') { %> accept="image/*" <% } %> />
-          <% if (type === 'file') { %>
-          <div class="preview">
-            <img src="<%= file.location %>" alt="" />
-            <input type="text" class="mg-t-sm" value="<%= file.alt %>" placeholder="Image description..." name="<%= name + '-alt' %>" novalidate>
-          </div>
-          <% } %>
-        </div>
-      </div>
-      <%
+			<div class="item">
+				<div class="subitem">
+					<label for="<%= name %>" <% if (type === 'file') { %> class="file-upload" <% } %>><%= label %><% if (type === 'file') { %> <i class="mg-l-xs fa fa-upload"></i> <% } %></label>
+					<input type="<%= type %>" name="<%= name %>" id="<%= name %>" role="<%= role %>" value="<%= value %>" <%= required ? 'data-required' : '' %> autocomplete="off" <% if (type === 'file') { %> accept="<%= accept%>" <% } %> />
+					<% if (type === 'file') { %>
+					<% if (accept === 'image/*') { %>
+					<div class="preview">
+						<img src="<%= file[name] ? file[name].location : '' %>" alt="" />
+						<input type="text" class="mg-t-sm" value="<%= file[name] ? file[name].alt : '' %>" placeholder="Image description..." name="<%= name + '-alt' %>" novalidate>
+					</div>
+					<% } else { %>
+					<div class="filename">
+						<span><%= file[name] ? file[name].originalname : '' %></span>
+					</div>
+					<% } %>
+
+					<% } %>
+				</div>
+			</div>
+			<%
           }
         }
         if (tag === 'textarea') {
           %>
-      <div class="item">
-        <div class="subitem">
-          <label for="<%= name %>"><%= label %></label>
-          <textarea name="<%= name %>" role="<%= role %>" data-tinymce="<%= name %>" <%= required ? 'data-required' : '' %>></textarea>
-          <script>
-            tinymce.init({
-              selector: 'textarea[data-tinymce="<%= name %>"]',
-              height: '<%= height %>',
-              plugins: 'advlist anchor autolink charmap code emoticons fullscreen help image insertdatetime media nonbreaking link lists quickbars searchreplace table visualblocks visualchars wordcount',
-              quickbars_insert_toolbar: false,
-              toolbar: 'undo redo | formatselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | link image media | removeformat | fullscreen',
-              default_link_target: '_blank',
-              setup: function(editor) {
-                editor.on('init', function() {
-                  editor.setContent(`<%- value %>`);
-                });
-              },
-            });
-          </script>
-        </div>
-      </div>
-      <%
+			<div class="item">
+				<div class="subitem">
+					<label for="<%= name %>"><%= label %></label>
+					<textarea name="<%= name %>" role="<%= role %>" data-tinymce="<%= name %>" <%= required ? 'data-required' : '' %>></textarea>
+					<script>
+						tinymce.init( {
+							selector: 'textarea[data-tinymce="<%= name %>"]',
+							height: '<%= height %>',
+							plugins: 'advlist anchor autolink charmap code emoticons fullscreen help image insertdatetime media nonbreaking link lists quickbars searchreplace table visualblocks visualchars wordcount',
+							quickbars_insert_toolbar: false,
+							toolbar: 'undo redo | formatselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | link image media | removeformat | fullscreen',
+							default_link_target: '_blank',
+							setup: function ( editor ) {
+								editor.on( 'init', function ( ) {
+									editor.setContent( `<%- value %>` );
+								} );
+							},
+						} );
+					</script>
+				</div>
+			</div>
+			<%
         }
         if (tag === 'select') {
           %>
-      <div class="item">
-        <div class="subitem">
-          <label for="<%= name %>"><%= label %></label>
-          <select name="<%= name %>" autocomplete="off" <%= required ? 'data-required' : '' %>>
-            <% if (value === '') { %>
-            <option value="" selected>Please Choose An Option</option>
-            <% } else { %>
-            <option value="">Please Choose An Option</option>
-            <% }
+			<div class="item">
+				<div class="subitem">
+					<label for="<%= name %>"><%= label %></label>
+					<select name="<%= name %>" autocomplete="off" <%= required ? 'data-required' : '' %>>
+						<% if (value === '') { %>
+						<option value="" selected>Please Choose An Option</option>
+						<% } else { %>
+						<option value="">Please Choose An Option</option>
+						<% }
                 for (let i = 0; i < field.options.length; i++) {
                   if (value === field.options[i].toLowerCase()) { %>
-            <option value="<%= field.options[i].toLowerCase() %>" selected><%= field.options[i] %></option>
-            <% } else { %>
-            <option value="<%= field.options[i].toLowerCase() %>"><%= field.options[i] %></option>
-            <% }
+						<option value="<%= field.options[i].toLowerCase() %>" selected><%= field.options[i] %></option>
+						<% } else { %>
+						<option value="<%= field.options[i].toLowerCase() %>"><%= field.options[i] %></option>
+						<% }
                 } %>
-          </select>
-        </div>
-      </div>
-      <%
+					</select>
+				</div>
+			</div>
+			<%
         }
       }) %>
-    </div>
+		</div>
 
-  </form>
+	</form>
 </div>

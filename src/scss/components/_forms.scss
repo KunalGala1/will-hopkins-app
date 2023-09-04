@@ -1,6 +1,6 @@
-@use "../abstracts/" as a;
-@use "../layout" as l;
-@use "../theme/" as t;
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
 
 form {
   @include l.radius(xs);
@@ -185,7 +185,7 @@ form {
     background-color: rgba(200, 200, 200, 0.1);
   }
 
-  input[type="file"] {
+  input[type='file'] {
     display: none;
   }
 
@@ -202,7 +202,7 @@ form {
     }
   }
 
-  input[type="hidden"] + .item {
+  input[type='hidden'] + .item {
     margin-top: 30px;
   }
 
@@ -230,6 +230,16 @@ form {
     img {
       @include l.radius(xs);
       @include a.boxshadow;
+    }
+  }
+
+  .filename {
+    display: none;
+    margin-left: 5px;
+    opacity: 80%;
+    font-size: 12px;
+    &.active {
+      display: inline-block;
     }
   }
 }

@@ -1,0 +1,27 @@
+C̶h̶a̶n̶g̶e̶ t̶o̶ r̶i̶c̶h̶ t̶e̶x̶t̶ l̶i̶s̶t̶e̶n̶ h̶e̶a̶d̶i̶n̶g̶s̶
+
+email: contact@will-hopkins.com?
+
+use personal email
+willhop7@gmail.com
+
+========
+rep list
+
+title of the piece
+composer
+year of piece
+
+category - solo/chamber
+
+description
+
+====
+
+events
+
+past events seperated
+listed by date
+
+pagination
+

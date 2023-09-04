@@ -1,0 +1,10 @@
+todo
+
+S̶t̶y̶l̶e̶ r̶e̶p̶ l̶i̶s̶t̶
+e̶v̶e̶n̶t̶ d̶o̶n̶t̶ s̶h̶o̶w̶ d̶a̶t̶a̶ i̶f̶ n̶o̶t̶ t̶h̶e̶r̶e̶
+handle duplicate event naming (slug)
+
+b̶i̶o̶ p̶i̶c̶t̶u̶r̶e̶ u̶p̶l̶o̶a̶d̶
+bio pdf file upload
+
+style contact
