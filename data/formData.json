@@ -42,8 +42,8 @@
       "name": "works",
       "display": "Work",
       "map": {
-        "thead": ["title"],
-        "tbody": ["title"]
+        "thead": ["title", "composer", "year", "tag", "description"],
+        "tbody": ["title", "composer", "year", "tag", "description"]
       }
     },
     "fields": [

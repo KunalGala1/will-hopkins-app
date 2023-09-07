@@ -841,10 +841,21 @@ table {
   margin: 30px auto;
 }
 
-.third-header {
+.works-subheader {
   font-family: "Georgia", serif;
-  padding-bottom: 5px;
-  color: var(--main-accent);
+  padding-bottom: 10px;
+  font-weight: 400;
+  color: rgb(152, 130, 130);
+  font-style: italic;
+}
+
+.works-header {
+  color: rgb(101, 81, 81);
+  font-family: "Roboto", sans-serif;
+  margin: 30px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
 }
 
 .event-header {
@@ -1527,13 +1538,20 @@ aside .bottom {
   }
 }
 #works[data-cli] .header {
-  font-family: "Roboto", sans-serif;
+  font-family: "Georgia", serif;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
   margin-bottom: 30px;
+}
+#works[data-cli] .top {
+  background-color: rgba(75, 75, 75, 0.1);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #works[data-cli] .container {
   max-width: 700px;
@@ -1542,29 +1560,25 @@ aside .bottom {
   margin-top: 0;
   margin-bottom: 0;
 }
-#works[data-cli] .card + .card {
-  margin-top: 30px;
-}
 #works[data-cli] .card {
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  border-radius: 5px;
 }
 #works[data-cli] .card ul {
   color: var(--200);
-  font-family: "Roboto", sans-serif;
+  font-family: "Georgia", serif;
 }
 #works[data-cli] .card .main-text {
-  background-color: rgba(100, 100, 100, 0.1);
+  background-color: rgba(75, 75, 75, 0.1);
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  margin: 10px 0;
+  border-top: solid 1px rgba(247, 247, 247, 0.1);
   font-family: "Roboto", sans-serif;
-  border-left: solid 3px var(--main-accent);
+  color: #c8c8c8;
 }
 
 #events[data-dashboard] .no-padding {

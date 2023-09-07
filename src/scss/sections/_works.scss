@@ -1,6 +1,8 @@
-@use "../abstracts/" as a;
-@use "../layout" as l;
-@use "../theme/" as t;
+@use '../abstracts/' as a;
+@use '../layout' as l;
+@use '../theme/' as t;
+
+$color: 75;
 
 #works[data-cli] {
   @include l.padding(md);
@@ -9,36 +11,35 @@
   }
 
   .header {
-    @include t.sans;
+    @include t.serif;
     @include l.max-width(md);
     margin-bottom: 30px;
+  }
+
+  .top {
+    background-color: rgba($color, $color, $color, 0.1);
+
+    @include l.padding(sm);
   }
 
   .container {
     @include l.max-width(md);
   }
 
-  .card + .card {
-    margin-top: 30px;
-  }
-
-  $color: 100;
-
   .card {
     // background-color: rgba($color, $color, $color, 0.1);
     @include l.padding(sm);
-    @include l.radius(sm);
     ul {
       color: var(--200);
-      @include t.sans;
+      @include t.serif;
     }
 
     .main-text {
       background-color: rgba($color, $color, $color, 0.1);
       @include l.padding(sm);
-      margin: 10px 0;
+      border-top: solid 1px rgba(247, 247, 247, 0.1);
       @include t.sans;
-      border-left: solid 3px var(--main-accent);
+      color: #c8c8c8;
     }
   }
 }

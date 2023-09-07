@@ -52,34 +52,43 @@ const bio = body.bio;
 		</div>
 		<% } %>
 
-		<main id="works" data-cli>
+		<section id="works" data-cli>
 			<div class="header"><%- JSON.parse(docs[1].body).repertoire %></div>
 			<ul class="container">
-				<% for( let i = 0; i < data.length; i++ ) { %>
-
+				<% const tags = ["solo", "chamber", "ensemble", "orchestral", "electronic", "vocal", "choral", "opera", "dance", "theatre", "film", "installation", "other"]; %>
+				<% for( let j = 0; j < tags.length; j++ ) { %>
+				<% let itemsForTag = data.filter(item => JSON.parse(item.body).tag === tags[j]); %>
+				<% if (itemsForTag.length > 0) { %>
+				<h2 class="works-header"><%= tags[j] %></h2>
+				<% itemsForTag.forEach(item => { %>
 				<li class="card">
 					<div class="content">
-						<h3 class="third-header">
-							<%= JSON.parse(data[i].body).title %>
-						</h3>
-						<ul>
-							<li>
-								<%= JSON.parse(data[i].body).composer %>
-							</li>
-							<li>
-								<%= JSON.parse(data[i].body).year %>
-							</li>
-							<li>
-								<%= JSON.parse(data[i].body).tag %>
-							</li>
-						</ul>
-						<div class="main-text">
-							<%- JSON.parse(data[i].body).description %>
+						<div class="top">
+							<h3 class="works-subheader">
+								<%= JSON.parse(item.body).title %>
+							</h3>
+							<ul>
+								<li>
+									<%= JSON.parse(item.body).composer %>
+								</li>
+								<li>
+									<%= JSON.parse(item.body).year %>
+								</li>
+							</ul>
 						</div>
+						<% if (JSON.parse(item.body).description) { %>
+						<div class="main-text">
+							<%- JSON.parse(item.body).description %>
+						</div>
+						<% } %>
+					</div>
 				</li>
+				<% }); %>
 				<% } %>
-				</div>
-		</main>
+				<% } %>
+			</ul>
+
+		</section>
 		<%- include('../partials/footer') %>
 	</body>
 
