@@ -59,7 +59,7 @@ const bio = body.bio;
 				<% for( let j = 0; j < tags.length; j++ ) { %>
 				<% let itemsForTag = data.filter(item => JSON.parse(item.body).tag === tags[j]); %>
 				<% if (itemsForTag.length > 0) { %>
-				<h2 class="works-header"><%= tags[j] %></h2>
+				<h2 class="works-header text-2xl"><%= tags[j] %></h2>
 				<% itemsForTag.forEach(item => { %>
 				<li class="card">
 					<div class="content">
