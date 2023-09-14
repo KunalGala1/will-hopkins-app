@@ -1,22 +1,22 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const nodemailer = require('nodemailer');
-const AWS = require('aws-sdk');
+const nodemailer = require("nodemailer");
+const AWS = require("aws-sdk");
 
 // Create a Nodemailer transporter
 const transporter = nodemailer.createTransport({
   SES: new AWS.SES({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: 'us-east-2',
+    region: "us-east-2",
   }),
 });
 
-router.post('/mailsend', async (req, res) => {
+router.post("/mailsend", async (req, res) => {
   const { name, email, subject, message } = req.body;
-  console.log('Data: ', req.body);
+  console.log("Data: ", req.body);
 
-  const messageHtml = message.replace(/\n/g, '<br>');
+  const messageHtml = message.replace(/\n/g, "<br>");
 
   const output = `
   <!DOCTYPE html>
@@ -49,18 +49,18 @@ router.post('/mailsend', async (req, res) => {
   `;
 
   const mailOptions = {
-    from: 'k2awesomeness@gmail.com',
-    to: 'k2awesomeness@gmail.com',
+    from: "k2awesomeness@gmail.com",
+    to: ["k2awesomeness@gmail.com", "willhop7@gmail.com"],
     subject: subject,
     html: output,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ msg: 'Email has been sent' });
+    res.status(200).json({ msg: "Email has been sent" });
   } catch (error) {
     console.log(error);
-    res.status(500).send('Error sending email');
+    res.status(500).send("Error sending email");
   }
 });
 
