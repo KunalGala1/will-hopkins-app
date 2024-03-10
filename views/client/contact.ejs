@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Will Hopkins | Contact</title>
   <%- include('../partials/head') %>
+
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+
 </head>
 
 <body>
@@ -15,8 +18,8 @@
     <div class="flex">
       <p role="contentinfo">Use this form to get in touch.</p>
     </div>
-    <h3 class="pd-sm"><%= msg %></h3>
-    <form action="/mailsend" class="form contact-form" method="post" novalidate>
+    <h3 class="text-center py-8"><%= msg %></h3>
+    <form action="/mailsend" class="form contact-form" method="post" novalidate id="contact-form">
       <div class="item">
         <div class="subitem">
           <label for="name">Name*</label>
@@ -39,21 +42,31 @@
           <textarea name="message" id="" cols="30" rows="10"></textarea>
         </div>
       </div>
-      <div class="item">
-        <div class="subitem">
-          <label for="auth">2 + 1 = ?*</label>
-          <input type="text" name="auth" required />
-        </div>
-      </div>
 
       <div class="item">
         <div class="subitem">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button
+            type="submit"
+            class="g-recaptcha btn btn-primary" 
+            data-sitekey="6LcxK5QpAAAAAN4_3_oZXVVc8aBgB4rmfr0TaGMY" 
+            data-callback='onSubmit' 
+            data-action='submit'
+          >
+            Submit
+          </button>
+
         </div>
       </div>
     </form>
   </main>
   <%- include('../partials/footer') %>
+
+  <script>
+    function onSubmit(token) {
+      document.getElementById("contact-form").submit();
+    }
+  </script>
+ 
 </body>
 
 </html>

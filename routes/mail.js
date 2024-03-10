@@ -23,12 +23,12 @@ router.post("/mailsend", async (req, res) => {
   <html lang="en">
   <head>
       <meta charset="UTF-8">
-      <title>Contact Request</title>
+      <title>Contact Request from will-hopkins.com!</title>
   </head>
   <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; color: #333;">
   
   <div style="background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
-      <p style="font-size: 16px;">You have a new contact request for will-hopkins.com!</p>
+      <p style="font-size: 16px;">You have a new contact request from will-hopkins.com!</p>
       
       <h3 style="font-size: 20px; border-bottom: 2px solid #333; padding-bottom: 10px; margin-top: 20px; color: #0077b6;">Contact Details</h3>
       
@@ -57,7 +57,7 @@ router.post("/mailsend", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ msg: "Email has been sent" });
+    res.render("client/contact", { msg: "Email has been sent!" });
   } catch (error) {
     console.log(error);
     res.status(500).send("Error sending email");
