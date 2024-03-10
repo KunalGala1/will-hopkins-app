@@ -14,11 +14,13 @@
 
 <body>
   <%- include('../partials/nav') %>
-  <main id="contact" class="pd-md">
+  <main id="contact" class="pd-md space-y-8">
     <div class="flex">
       <p role="contentinfo">Use this form to get in touch.</p>
     </div>
-    <h3 class="text-center py-8"><%= msg %></h3>
+    <% if (msg) { %>
+      <h3 class="text-center py-8"><%= msg %></h3>
+    <% } %>
     <form action="/mailsend" class="form contact-form" method="post" novalidate id="contact-form">
       <div class="item">
         <div class="subitem">

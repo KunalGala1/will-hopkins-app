@@ -592,6 +592,12 @@ video {
   justify-content: space-between;
 }
 
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
