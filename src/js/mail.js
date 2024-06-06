@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) {
         toastNotification(
           "There was an error sending your email. Please try again later.",
-          "error",
+          "danger",
           5000
         );
       } else {
