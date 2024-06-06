@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "concurrently \"nodemon server.js\" \"gulp\" \"sass src/scss:public/css --no-source-map --watch\" \"tailwind -i src/css/input.css -o public/css/tailwind.css -w\"",
     "kill": "killall node",
-    "ssh": "ssh ec2-user@"
+    "ssh": "ssh ec2-user@18.218.171.71"
   },
   "author": "Kunal Gala",
   "license": "ISC",
