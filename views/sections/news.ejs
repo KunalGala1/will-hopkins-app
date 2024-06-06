@@ -1,6 +1,14 @@
-<section id="news">
-  <h1>News</h1>
-  <div class="banner">
-    <div class="container"><%- JSON.parse(news.body).news %></div>
-  </div>
-</section>
+<% 
+const newsContents = JSON.parse(news.body).news;
+%>
+
+<% if (newsContents) { %>
+  <section id="news">
+    <h1>News</h1>
+    <div class="banner">
+      <div class="container"><%- newsContents %></div>
+    </div>
+  </section>
+<% } %>
+
+

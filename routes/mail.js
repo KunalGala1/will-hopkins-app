@@ -409,25 +409,18 @@ const sendEmail = async (name, email, subject, message) => {
                     <tr>
                     <td valign="top" class="pc-w620-padding-60-20-10-20" style="padding: 20px 40px 20px 40px;border-radius: 0px;background-color: transparent;" bgcolor="transparent">
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                        <td valign="top" style="padding: 0px 0px 60px 0px;">
-                        <img src="https://cloudfilesdm.com/postcards/image-1710445868251.jpg" class="" width="50" height="95" alt="" style="display: block;border: 0;outline: 0;line-height: 100%;-ms-interpolation-mode: bicubic;width:50px;height: auto;max-width: 100%;" />
-                        </td>
-                    </tr>
-                    </table>
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                        <td align="left" valign="top" style="padding: 0px 0px 40px 0px;">
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation">
-                        <tr>
-                        <td valign="top" class="pc-font-alt pc-w620-fontSize-58px" align="left" style="padding: 0px 0px 0px 0px;mso-line-height: exactly;line-height: 107%;font-family: Nunito Sans, Arial, Helvetica, sans-serif;font-size: 62px;font-weight: 200;color: #000a28;text-align: left;text-align-last: left;font-variant-ligatures: normal;">
-                            <div><span>You received a new contact request!</span>
-                            </div>
-                        </td>
-                        </tr>
-                        </table>
-                        </td>
-                    </tr>
+                      <tr>
+                          <td align="left" valign="top" style="padding: 0px 0px 40px 0px;">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                          <tr>
+                          <td valign="top" class="pc-font-alt pc-w620-fontSize-58px" align="left" style="padding: 0px 0px 0px 0px;mso-line-height: exactly;line-height: 107%;font-family: Nunito Sans, Arial, Helvetica, sans-serif;font-size: 62px;font-weight: 200;color: #000a28;text-align: left;text-align-last: left;font-variant-ligatures: normal;">
+                              <div><span>You received a new contact request!</span>
+                              </div>
+                          </td>
+                          </tr>
+                          </table>
+                          </td>
+                      </tr>
                     </table>
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
@@ -474,7 +467,7 @@ const sendEmail = async (name, email, subject, message) => {
                         <table border="0" cellpadding="0" cellspacing="0" role="presentation">
                         <tr>
                         <td valign="top" class="pc-font-alt" align="left" style="padding: 0px 0px 0px 0px;mso-line-height: exactly;line-height: 20px;letter-spacing: -0.2px;font-family: Nunito Sans, Arial, Helvetica, sans-serif;font-size: 14px;font-weight: normal;color: #000a28;text-align: left;text-align-last: left;font-variant-ligatures: normal;">
-                            <div><span>https://www.bcjazz.net</span>
+                            <div><span>https://will-hopkins.com/</span>
                             </div>
                         </td>
                         </tr>
