@@ -8,7 +8,8 @@
   <title>Will Hopkins | Contact</title>
   <%- include('../partials/head') %>
 
-  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <!-- Cloudflare turnstile script -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 
@@ -21,6 +22,8 @@
     <% if (msg) { %>
       <h3 class="text-center py-8"><%= msg %></h3>
     <% } %>
+
+    <!-- Contact form -->
     <form action="/mailsend" class="form contact-form" method="post" novalidate id="contact-form">
       <div class="item">
         <div class="subitem">
@@ -45,15 +48,17 @@
         </div>
       </div>
 
+      <!-- Cloudflare turnstile -->
+      <div class="item">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAcD_xQ-LH6LkCq1"></div>
+      </div>
+
       <div class="item">
         <div class="subitem">
           <button
             type="submit"
-            class="g-recaptcha btn btn-primary" 
-            data-sitekey="6LcxK5QpAAAAAN4_3_oZXVVc8aBgB4rmfr0TaGMY" 
-            data-callback='onSubmit' 
-            data-action='submit'
-          >
+            class="btn btn-primary"
+            >
             Submit
           </button>
 
